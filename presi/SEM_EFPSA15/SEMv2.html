@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Applied Structural Equation Modelling for Psychology Students</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Applied Structural Equation Modelling for Psychology Students">
+  <meta name="author" content="Peter A. Edelsbrunner">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Applied Structural Equation Modelling for Psychology Students</h1>
+    <h2>Sex, Drugs, &amp; Fancy Models</h2>
+    <p>Peter A. Edelsbrunner<br/>Resarch Assistant, ETH Zurich</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <!-- WELCOME & FLYER-SLIDE -->
+
+<div align="center">
+<img height='630' src='SEM_vis/leaf_let_stats.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <article data-timings="">
+    <!-- SNEAK PREVIEW -->
+
+<div align="center">
+<img height='630' src='SEM_vis/SEM_3f_med.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <article data-timings="">
+    <p>Equip yourselves!</p>
+
+<div align="center">
+<img height='630' src='SEM_vis/RStudio.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <article data-timings="">
+    <!-- HEADLINE ONLY -->
+
+<h2>Structural Equation Modelling (SEM)</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>A Million years ago...</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>(about 1970)</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>The Stats Universe!</h2>
+  </hgroup>
+  <article data-timings="">
+    <div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_sky_by_zachshoemakr-d5u3g38.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <article data-timings="">
+    <!-- STARRY NIGHT 2: t-Test -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_t.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <article data-timings="">
+    <!-- STARRY NIGHT 3: ANOVA -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_ANOVA.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <article data-timings="">
+    <!-- STARRY NIGHT 4: MultReg -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_reg.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <article data-timings="">
+    <!-- STARRY NIGHT 5: FA -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_FA.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <article data-timings="">
+    <!-- STARRY NIGHT 6: PM -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_PM.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <article data-timings="">
+    <!-- STARRY NIGHT 7: semI -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_semI.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <article data-timings="">
+    <!-- STARRY NIGHT 8: SEMII -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_SEMII.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <article data-timings="">
+    <!-- TRANSITION INTRO -> JOURNEY -->
+
+<h2>The World of</h2>
+
+<h2>Structural Equation Modelling</h2>
+
+<div align="center">
+<img height='333' width='500' align='middle' src='SEM_vis/starry_SEMII.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <article data-timings="">
+    <!-- TRANSITION INTRO -> JOURNEY II -> Question -->
+
+<h2>What can</h2>
+
+<h2>SEM do?</h2>
+
+<div align="center">
+<img height='333' width='500' align='middle' src='SEM_vis/starry_SEMII.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <article data-timings="">
+    <!-- JOURNEY
+to explore how SEM managed to conquer a large part of the universe of statistics
+within few decades, let us take a look at what SEM can do...
+...in a context that is a bit more down to earth
+and better graspable for us...
+...Sex!
+-->
+
+<h2>What can</h2>
+
+<h2>SEM do?</h2>
+
+<div align="center">
+<img height='400' align='middle' src='SEM_vis/backtoreality.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h1>Research Question</h1>
+  </hgroup>
+  <article data-timings="">
+    <h2>How are Risk Behaviour and Social Status Related in Adolescence?</h2>
+
+<div align="center">
+<img height='400' align='middle' src='SEM_vis/associations.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h3>Data</h3>
+  </hgroup>
+  <article data-timings="">
+    <h3><em>N</em> = 408 students, 10th/11th grade (about 17 years)</h3>
+
+<h3>Austria, the Netherlands</h3>
+
+<ul>
+<li><p>Risk behaviour</p>
+
+<ul>
+<li>Sex (Intercourse)</li>
+<li>Drugs (Tobacco, Alcohol, Marijuana)</li>
+</ul></li>
+<li><p>Social status</p>
+
+<ul>
+<li>Popularity  (&quot;who is popular?&quot;)</li>
+<li>Likeability (&quot;who yo dou like?&quot;)</li>
+</ul></li>
+<li><p>Prosocial behaviour</p>
+
+<ul>
+<li>Who is nice? Who is helpful? Who cheers others up?</li>
+</ul></li>
+<li><p>Antisocial behaviour</p>
+
+<ul>
+<li>Who is mean? Who bullies others? Who excludes others?</li>
+</ul></li>
+<li><p>Positive characteristics</p>
+
+<ul>
+<li>e.g., Sporty, good in school</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Software preparation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>open <em>R</em>!</p>
+
+<pre><code class="r"># Set working directory
+setwd(&quot;C:/Users/petere/Desktop/SEM_WS&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Software preparation</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># Install packages needed for analysis
+ install.packages(&quot;foreign&quot;, &quot;semPlot&quot;,
+ &quot;lavaan&quot;, &quot;psych&quot;, &quot;semTools&quot;)
+
+# Load packages needed for analysis
+library(foreign) # Package to read SPSS data
+library(lavaan) # Package for SEM
+library(semPlot) # Package to draw SEMs
+library(psych) # Package for descriptive statistics
+library(semTools) # Package for multigroup analysis
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Loading and preprocessing the data</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># Read data from SPSS file into dataframe
+risk &lt;- read.spss(&quot;data/Datafile Workshops.sav&quot;, 
+                  use.value.labels=TRUE,
+                  max.value.labels=Inf,
+                  to.data.frame=TRUE)
+
+View(risk)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Is gender related to the frequency of risk behaviour?</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <article data-timings="">
+    <!-- What do we use? -> The t-Test! -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_PM.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>t-Test</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># 2.2 Using regular t-test
+summary(lm(risksum~Gender))
+
+# 2.3 Using SEM t-test model
+model2 &lt;- &#39;# Regressions: t-test model
+           risksum~Gender&#39;
+fit_model2 &lt;- cfa(model2,
+                  data=risk,
+                  missing=&quot;ml&quot;)
+summary(fit_model2)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Does risk behaviour depend on adolescents&#39; popularity?</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <article data-timings="">
+    <!-- What do we use? -> A regression! -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_PM.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Regression/correlation</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># 3.2 Using regular regression
+summary(lm(risksum~ZPop))
+
+# 3.3 Using SEM
+model3 &lt;- &#39;# Regressions: Megression model
+           risksum~ZPop&#39;
+fit_model3 &lt;- cfa(model3,
+                  data=risk,
+                  missing=&quot;ml&quot;)
+summary(fit_model3)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Does risk behaviour depend on adolescents&#39; popularity and likeability?</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
+    <h2>Multiple Regression</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># 4.1 Using regular multiple regression
+summary(lm(risksum~ZPop+ZLike))
+
+# 4.2 Using SEM
+model4 &lt;- &#39;# Regression: Multiple
+          risksum~ZPop+ZLike&#39;
+fit_model4 &lt;- cfa(model4,
+                  data=risk,
+                  missing=&quot;ml&quot;)
+summary(fit_model4)
+summary(lm(risksum~ZPop+ZLike))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <hgroup>
+    <h2>Is there a general tendency to engage in risk behaviour?</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <article data-timings="">
+    <!-- What do we use? -> A factor analysis! -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_PM.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <hgroup>
+    <h2>Confirmatory Factor Analysis</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">model5 &lt;- &#39;# CFA: Unidimensional model
+          # Risk Behaviour Factor
+          Risk=~AvrSex + AvrTob + AvrAlc + ZMar1
+          &#39;
+fit_model5 &lt;- cfa(model5,
+                  data=risk,
+                  missing=&quot;ml&quot;)
+summary(fit_model5,
+        fit.measures = TRUE,
+        standardized = TRUE)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>Does engagement in sports lead to less smoking, in turn leading to less popularity?</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
+  <article data-timings="">
+    <!-- What do we use? -> A Path analysis/mediation model! -->
+
+<h2>The Stats Universe</h2>
+
+<div align="center">
+<img height='666' width='1000' align='middle' src='SEM_vis/starry_PM.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-36" style="background:;">
+  <hgroup>
+    <h2>Path Analysis</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">model6 &lt;- &#39;# Mediation model
+# Risk Behaviour Factor
+ZPop ~ AvrTob + Zsport
+AvrTob ~ Zsports
+&#39;
+fit_model6 &lt;- cfa(model6,
+                  data=risk,
+                  missing=&quot;ml&quot;)
+summary(fit_model6,
+        fit.measures = TRUE,
+        standardized = TRUE)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-37" style="background:;">
+  <hgroup>
+    <h2>Summary: What can SEM do?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Estimate classical models</p>
+
+<ul>
+<li>Advantages in SEM:
+&quot;Corrections&quot; for Missing data, non-normality, clustered sampling</li>
+</ul></li>
+<li><p>Estimate handy modern models</p>
+
+<ul>
+<li>Confirmatory Factor Analysis:
+Correction for measurement error</li>
+<li>Path Analysis:
+Examine complex causal chains</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-38" style="background:;">
+  <hgroup>
+    <h2>So What?</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-39" style="background:;">
+  <hgroup>
+    <h2>Full SEM Power!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Combine <em>Latent Variables</em>
+with <em>Structural</em> (Path) Models</p>
+
+<div align="center">
+<img height='500' src='SEM_vis/CFA_PM.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
+  <hgroup>
+    <h2>Full SEM Power!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Examine <em>Complex Theories</em>
+with <em>Error Free</em> Constructs</p>
+
+<div align="center">
+<img height='500' src='SEM_vis/CFA_PM.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-41" style="background:;">
+  <article data-timings="">
+    <div align="center">
+<img height='630' src='SEM_vis/SEM_3f_med.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-42" style="background:;">
+  <hgroup>
+    <h2>A &quot;Small &quot; Theory...</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">model7 &lt;- &#39;# SEM:
+# Risk Behaviour Factor
+Risk =~ AvrSex + AvrTob + AvrAlc + ZMar1
+# Regressions
+ZPop ~ Risk
+ZLike ~ Risk
+# Correlation
+ZLike ~~ ZPop
+&#39;
+fit_model7 &lt;- sem(model7,
+                  data=risk,
+                  missing=&quot;ml&quot;,
+                  estimator=&quot;MLR&quot;,
+                  fixed.x=FALSE)
+summary(fit_model7,
+        fit.measures = TRUE,
+        standardized = TRUE)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-43" style="background:;">
+  <hgroup>
+    <h2>A &quot;Small&quot; Theory...</h2>
+  </hgroup>
+  <article data-timings="">
+    <div align="center">
+<img height='600' src='SEM_vis/smallmodel.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-44" style="background:;">
+  <hgroup>
+    <h2>The Full Model</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">model8 &lt;- &#39;# SEM:
+          # Risk Behaviour Factor
+          Risk =~ AvrSex + AvrTob + AvrAlc + ZMar1
+          ProSoc =~ Zcheers + Zhelpful + Znice
+          AntSoc =~ Zmean + Zbullies + Zexclude
+          # Regressions
+          ZPop ~ Risk + ProSoc + AntSoc + Zattrac + Zsports
+          ZLike ~ ProSoc + AntSoc + Zattrac        
+          # Correlations
+          ZPop ~~ ZLike
+          Risk ~~ Zsports
+          Risk ~~ 0*ProSoc
+&#39;
+fit_model8 &lt;- sem(model8,
+                  data=risk, missing=&quot;ml&quot;,
+                  estimator=&quot;MLR&quot;, fixed.x=FALSE)
+summary(fit_model8, fit.measures = TRUE,
+        standardized = TRUE)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-45" style="background:;">
+  <hgroup>
+    <h2>The Full Model</h2>
+  </hgroup>
+  <article data-timings="">
+    <div align="center">
+<img height='600' src='SEM_vis/fullmodel.png'>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-46" style="background:;">
+  <hgroup>
+    <h2>Drawbacks</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-47" style="background:;">
+  <hgroup>
+    <h2>Model fit statistics</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Does my model adequately represent the data?</p></li>
+<li><p>Fit statistics: RMSEA, CFI, SRMR</p>
+
+<ul>
+<li>Rules of thumb &quot;for beginners&quot;</li>
+</ul></li>
+<li><p>Strong theory, inspection of residuals and modifications</p>
+
+<ul>
+<li>&quot;You&quot; know what to expect from the data</li>
+<li>Residual variances and covariances</li>
+<li>Modifcation indices: What would improve model fit?</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-48" style="background:;">
+  <hgroup>
+    <h2>Overblown fancyness</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Don&#39;t assess 27 scales!
+
+<ul>
+<li>SEM won&#39;t &quot;reveal&quot; anything</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-49" style="background:;">
+  <hgroup>
+    <h2>Modeling weak measurement</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>SEM is not a panacea for weak measures!
+
+<ul>
+<li>Questionnaire, coding system,...</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title=''>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title=''>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title=''>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title=''>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='A Million years ago...'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='(about 1970)'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='The Stats Universe!'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title=''>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title=''>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title=''>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title=''>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title=''>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title=''>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title=''>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title=''>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title=''>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title=''>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Research Question'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Data'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Software preparation'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Software preparation'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Loading and preprocessing the data'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Is gender related to the frequency of risk behaviour?'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title=''>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='t-Test'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Does risk behaviour depend on adolescents&#39; popularity?'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title=''>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Regression/correlation'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Does risk behaviour depend on adolescents&#39; popularity and likeability?'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Multiple Regression'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='Is there a general tendency to engage in risk behaviour?'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title=''>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='Confirmatory Factor Analysis'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='Does engagement in sports lead to less smoking, in turn leading to less popularity?'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title=''>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='Path Analysis'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='Summary: What can SEM do?'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='So What?'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='Full SEM Power!'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='Full SEM Power!'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title=''>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='A &quot;Small &quot; Theory...'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='A &quot;Small&quot; Theory...'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='The Full Model'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='The Full Model'>
+         45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='Drawbacks'>
+         46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='Model fit statistics'>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='Overblown fancyness'>
+         48
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title='Modeling weak measurement'>
+         49
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
