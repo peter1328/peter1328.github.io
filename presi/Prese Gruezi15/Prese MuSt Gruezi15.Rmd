@@ -8,10 +8,6 @@ author: |
 output:
   ioslides_presentation:
     widescreen: true
-vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ## MuSt Peer Mentoring: *Est. 2009*
