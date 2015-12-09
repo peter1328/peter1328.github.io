@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://slidify.org/samples/intro/#19 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Slidify</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Slidify">
+  <meta name="author" content="Ramnath Vaidyanathan">
+  <meta name="generator" content="slidify">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidify.org/samples/io2012/libraries/frameworks/io2012/css/default.css" media="all">
+  <link rel="stylesheet" href="http://slidify.org/samples/io2012/libraries/frameworks/io2012/phone.css" media="only screen and (max-device-width: 480px)">
+  <link rel="stylesheet" href="http://slidify.org/samples/io2012/libraries/highlighters/highlight.js/css/github.css">
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="slides" src="./Slidify_files/slides.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="order" src="./Slidify_files/order.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="slide_config" src="./Slidify_files/slide_config.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="modernizr.custom.45394" src="./Slidify_files/modernizr.custom.45394.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="prettify/prettify" src="./Slidify_files/prettify.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="hammer" src="./Slidify_files/hammer.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="slide-controller" src="./Slidify_files/slide-controller.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="slide-deck" src="./Slidify_files/slide-deck.js"></script><!--<base target="_blank">--><base href="." target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="../io2012/libraries/frameworks/io2012/js/slides" src="./Slidify_files/require-1.0.8.min.js">
+  </script>
+  
+    <link rel="stylesheet" href="http://slidify.org/samples/io2012/assets/css/lists.css">
+<link rel="stylesheet" href="http://slidify.org/samples/io2012/assets/css/quotes.css">
+<link rel="stylesheet" href="http://slidify.org/samples/io2012/assets/css/ribbons.css">
+<link rel="stylesheet" href="http://slidify.org/samples/io2012/assets/css/sizes.css">
+<link rel="stylesheet" href="http://slidify.org/samples/io2012/assets/css/tables.css">
+<link rel="stylesheet" href="http://slidify.org/samples/io2012/assets/css/text.css">
+
+<link rel="icon" type="image/png" href="http://slidify.org/samples/intro/images/google_developers_logo_tiny.png"><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open%20Sans:regular,semibold,italic,italicsemibold|Inconsolata&v2"></head>
+<body style="opacity: 0" class="loaded">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    <!-- END LOGO SLIDE -->
+    
+
+    <!-- TITLE SLIDE -->
+    <!-- Should I move this to a Local Layout File? -->
+    <slide class="title-slide segue nobackground" data-slide-num="1" data-total-slides="25">
+      <hgroup class="auto-fadein">
+        <h1>Slidify</h1>
+        <h2>Reproducible HTML Slides from R Markdown</h2>
+        <p>Ramnath Vaidyanathan<br>Assistant Professor, McGill University</p>
+      </hgroup>
+      <a href="https://github.com/ramnathv/slidify/zipball/gh-pages" class="example">
+        Download
+      </a>
+      
+      <footer class="source">
+        <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+        <img width="80px" src="./Slidify_files/by-sa.png">
+        </a>
+      </footer>
+    </slide>
+
+    <!-- SLIDES -->
+      <slide class="segue quote dark" id="slide-1" style="background:;" data-slide-num="2" data-total-slides="25">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p><q> Slidify is a tool that makes it easy to create, customize and publish, reproducible HTML5 slide decks using R Markdown.</q></p>
+
+<style>
+.dark q {
+  color: white;
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-2" style="background:;" data-slide-num="3" data-total-slides="25">
+  <hgroup>
+    <h2>Install Slidify</h2>
+  </hgroup>
+  <article>
+    <p>Slidify can be installed from <code>github</code> using Hadley's <code>devtools</code> package</p>
+
+<pre><code class="r"><span class="keyword">library</span>(devtools)
+install_github(<span class="string">'slidify'</span>, <span class="string">'ramnathv'</span>)
+</code></pre>
+
+<p>If you are on Windows, you will need <code>gcc</code> and <code>RTools</code> to get <code>devtools</code> working.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="segue quote" id="slide-3" style="background:yellow;" data-slide-num="4" data-total-slides="25">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p><q> Slidify is a tool that makes it easy to <span class="red">create</span>, customize and publish, reproducible HTML5 slide decks using R Markdown.</q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-4" style="background:;" data-slide-num="5" data-total-slides="25">
+  <hgroup>
+    <h2>Create Deck</h2>
+  </hgroup>
+  <article>
+    <p>You can initialize a slide deck using the <code>author</code> function</p>
+
+<pre><code class="r"><span class="keyword">library</span>(slidify)
+author(<span class="string">"mydeck"</span>)
+</code></pre>
+
+<p>This will do the following</p>
+
+<ol>
+<li>Create a new directory named <code>mydeck</code>.</li>
+<li>Copy necessary scaffolding for the presentation.</li>
+<li>If <code>git</code> is installed on the system
+
+<ul>
+<li>initialize a new git repo.</li>
+<li>checkout and switch to <code>gh-pages</code> branch</li>
+<li>add and commit all files to the repo</li>
+</ul></li>
+<li>Open <code>index.Rmd</code> for you to edit.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-5" style="background:;" data-slide-num="6" data-total-slides="25">
+  <hgroup>
+    <h2>Edit Slides</h2>
+  </hgroup>
+  <article>
+    <pre><code class="php"> ---
+ title    : Title 
+ substitle: Subtitle
+ author   : Author
+ job      : Job
+ widgets  : []
+ mode     : selfcontained
+ ---
+
+ <span class="comment">## Slide 1</span>
+
+ <span class="keyword">Use</span> an <span class="keyword">empty</span> line followed by three dashes to separate slides!
+
+ --- .<span class="class"><span class="keyword">class</span> #<span class="title">id</span> 
+
+ ## <span class="title">Slide</span> 2
+</span></code></pre>
+
+<ol>
+<li>Edit the metadata in the YAML front matter.</li>
+<li>Write your slides in R Markdown.</li>
+<li>Separate your slides by an empty blank line followed by three dashes.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-6" style="background:;" data-slide-num="7" data-total-slides="25">
+  <hgroup>
+    <h2>Add Slide Classes</h2>
+  </hgroup>
+  <article>
+    <p>Add slide classes and id by appending them to the slide separator</p>
+
+<pre><code class="xml"> --- #montreal bg:url(http://goo.gl/cF6W2)
+
+ ## Montreal by Night Time
+
+ --- #dillinger
+
+ <span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">src</span> = '<span class="attribute">http:</span>//<span class="attribute">dillinger.io</span>' <span class="attribute">height</span>=<span class="value">'600px'</span>&gt;</span><span class="tag">&lt;/<span class="title">iframe</span>&gt;</span>
+
+ --- .middle 
+
+ Slidify is Awesome
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="montreal" style="background:url(http://goo.gl/cF6W2);" data-slide-num="8" data-total-slides="25">
+  <hgroup>
+    <h2>Montreal by Night Time</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="dillinger" style="background:;" data-slide-num="9" data-total-slides="25">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <iframe src="./Slidify_files/saved_resource.html" height="600px"></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="middle" id="slide-9" style="background:;" data-slide-num="10" data-total-slides="25">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p>Slidify is Awesome</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="segue dark quote" id="slide-10" style="background:;" data-slide-num="11" data-total-slides="25">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p><q> Slidify is a tool that makes it easy to create, <span class="red">customize</span> and publish, reproducible HTML5 slide decks using R Markdown.</q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-11" style="background:;" data-slide-num="12" data-total-slides="25">
+  <hgroup>
+    <h2>Customize</h2>
+  </hgroup>
+  <article>
+    <p>Slidify is designed to be modular and provide a high degree of customization for the more advanced users.</p>
+
+<table><thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>framework</td>
+<td>slide generation framework to use</td>
+</tr>
+<tr>
+<td>theme</td>
+<td>theme to use for styling slide content</td>
+</tr>
+<tr>
+<td>highlighter</td>
+<td>tool to use for syntax highlighting</td>
+</tr>
+<tr>
+<td>hitheme</td>
+<td>style to use for syntax highlighting</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>draft, standalone or selfcontained</td>
+</tr>
+<tr>
+<td>url</td>
+<td>path to assets and libraries</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-12" style="background:;" data-slide-num="13" data-total-slides="25">
+  <hgroup>
+    <h2>Style your Deck</h2>
+  </hgroup>
+  <article>
+    <p>Use the options <code>framework</code> and <code>theme</code> to style your deck!</p>
+
+<table><thead>
+<tr>
+<th>framework</th>
+<th>theme</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="">io2012</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://html5slides.googlecode.com/">html5slides</a></td>
+<td>default, uulm</td>
+</tr>
+<tr>
+<td><a href="">html5rocks</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://imakewebthings.com/deck.js/">deck.js</a></td>
+<td>web2.0, swiss, neon</td>
+</tr>
+<tr>
+<td><a href="http://paulrouget.com/dzslides/">dzslides</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/adamzap/landslide">landslide</a></td>
+<td>default, tango, clean</td>
+</tr>
+<tr>
+<td><a href="http://pepelsbey.github.com/shower/en.htm">shower</a></td>
+<td>ribbon</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/Talks/Tools/Slidy2/Overview.html#">slidy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="">slideous</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="">beamer</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://github.com/schacon/showoff">showoff</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-13" style="background:;" data-slide-num="14" data-total-slides="25">
+  <hgroup>
+    <h2>Slide Source</h2>
+  </hgroup>
+  <article>
+    <pre><code class="coffeescript">---  plot <span class="comment">#simple-plot</span>
+
+<span class="comment">## A Simple Plot ##</span>
+
+Let us create a simple scatterplot.
+
+`<span class="javascript"></span>``<span class="javascript">{r simple-plot, fig.height = <span class="number">6</span>, fig.align = <span class="string">'center'</span>, message = F}
+require(ggplot2)
+qplot(wt, mpg, data = mtcars)
+</span>``<span class="javascript"></span>`
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-14" style="background:;" data-slide-num="15" data-total-slides="25">
+  <hgroup>
+    <h2>knit Slide</h2>
+  </hgroup>
+  <article>
+    <pre><code class="erlang"><span class="pp">---  plot #simple-plot
+
+## A Simple Plot ##
+
+Let us create a simple scatterplot</span>.
+
+```r
+<span class="function"><span class="title">require</span><span class="params">(ggplot2)</span>
+<span class="title">qplot</span><span class="params">(wt, mpg, data = mtcars)</span>
+```
+
+![<span class="title">plot</span> <span class="title">of</span> <span class="title">chunk</span> <span class="title">simple</span>-<span class="title">plot</span>]<span class="params">(figure/simple-plot.png)</span> 
+</span></code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-15" style="background:;" data-slide-num="16" data-total-slides="25">
+  <hgroup>
+    <h2>Parsed Slide</h2>
+  </hgroup>
+  <article>
+    <pre><code class="parser3"><span class="xml"></span><span class="variable">$id</span><span class="xml">
+[</span><span class="number">1</span><span class="xml">] "simple-plot"
+
+</span><span class="variable">$html</span><span class="xml">
+[</span><span class="number">1</span><span class="xml">] "<span class="tag">&lt;<span class="title">h2</span>&gt;</span>A Simple Plot<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>\n\n<span class="tag">&lt;<span class="title">p</span>&gt;</span>Let us create a simple scatterplot.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>\n\n<span class="tag">&lt;<span class="title">pre</span>&gt;</span><span class="tag">&lt;<span class="title">code</span> <span class="attribute">class</span>=<span class="value">\"r\"</span>&gt;</span>require(ggplot2)\nqplot(wt, mpg, data = mtcars)\n<span class="tag">&lt;/<span class="title">code</span>&gt;</span><span class="tag">&lt;/<span class="title">pre</span>&gt;</span>\n\n<span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">\"figure</span>/<span class="attribute">simple-plot.png</span>\" <span class="attribute">alt</span>=<span class="value">\"plot</span> <span class="attribute">of</span> <span class="attribute">chunk</span> <span class="attribute">simple-plot</span>\"&gt;</span> <span class="tag">&lt;/<span class="title">p</span>&gt;</span>\n"
+
+</span><span class="variable">$header</span><span class="xml">
+[</span><span class="number">1</span><span class="xml">] "<span class="tag">&lt;<span class="title">h2</span>&gt;</span>A Simple Plot<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>"
+
+</span><span class="variable">$level</span><span class="xml">
+[</span><span class="number">1</span><span class="xml">] "</span><span class="number">2</span><span class="xml">"
+
+</span><span class="variable">$title</span><span class="xml">
+[</span><span class="number">1</span><span class="xml">] "A Simple Plot"
+
+</span><span class="variable">$content</span><span class="xml">
+[</span><span class="number">1</span><span class="xml">] "<span class="tag">&lt;<span class="title">p</span>&gt;</span>Let us create a simple scatterplot.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>\n\n<span class="tag">&lt;<span class="title">pre</span>&gt;</span><span class="tag">&lt;<span class="title">code</span> <span class="attribute">class</span>=<span class="value">\"r\"</span>&gt;</span>require(ggplot2)\nqplot(wt, mpg, data = mtcars)\n<span class="tag">&lt;/<span class="title">code</span>&gt;</span><span class="tag">&lt;/<span class="title">pre</span>&gt;</span>\n\n<span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">\"figure</span>/<span class="attribute">simple-plot.png</span>\" <span class="attribute">alt</span>=<span class="value">\"plot</span> <span class="attribute">of</span> <span class="attribute">chunk</span> <span class="attribute">simple-plot</span>\"&gt;</span> <span class="tag">&lt;/<span class="title">p</span>&gt;</span>\n"
+</span></code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="segue dark far-past" id="slide-16" style="background:;" data-slide-num="17" data-total-slides="25">
+  <hgroup>
+    <h2>Acknowledgements</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="past" id="slide-17" style="background:;" data-slide-num="18" data-total-slides="25">
+  <hgroup>
+    <h2>R Packages</h2>
+  </hgroup>
+  <article>
+    <p>All the heavy lifting is actually done by three awesome R packages. Slidify is merely a wrapper around them. </p>
+
+<ul>
+<li>Yihui Xie (knitr)</li>
+<li>RStudio (markdown)</li>
+<li>Edwin de Jonge (whisker)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="current" id="slide-18" style="background:;" data-slide-num="19" data-total-slides="25">
+  <hgroup>
+    <h2>HTML5 Slide Frameworks</h2>
+  </hgroup>
+  <article>
+    <p>Slidify builds on HTML5 slide frameworks created by several individuals and organizations.</p>
+
+<table><thead>
+<tr>
+<th>Framework</th>
+<th>Author</th>
+<th>License</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="http://code.google.com/p/html5slides/">html5slides</a></td>
+<td>Luke Mah, Marcin Wichary</td>
+<td>Apache</td>
+</tr>
+<tr>
+<td><a href="https://github.com/imakewebthings/deck.js">deck.js</a></td>
+<td>Caleb Troughton</td>
+<td>MIT/GPL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/paulrouget/dzslides">dzslides</a></td>
+<td>Paul Roget</td>
+<td>DWTFYW</td>
+</tr>
+<tr>
+<td><a href="http://slides.html5rocks.com/">html5rocks</a></td>
+<td>Google</td>
+<td>Apache</td>
+</tr>
+<tr>
+<td><a href="https://github.com/adamzap/landslide">landslide</a></td>
+<td>Adam Zapletal</td>
+<td>Apache</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pepelsbey/shower">shower</a></td>
+<td>Vadim Makeev</td>
+<td>MIT</td>
+</tr>
+<tr>
+<td><a href="http://www.w3.org/Talks/Tools/Slidy2/Overview.html#">slidy</a></td>
+<td>Dave Ragett</td>
+<td>MIT</td>
+</tr>
+<tr>
+<td><a href="">slideous</a></td>
+<td>Stefan Goessner</td>
+<td>LGPL</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="next" id="slide-19" style="background:;" data-slide-num="20" data-total-slides="25">
+  <hgroup>
+    <h2>Syntax Highlighters</h2>
+  </hgroup>
+  <article>
+    <p>Syntax highlighting is powered by open source highlighters. </p>
+
+<table><thead>
+<tr>
+<th>Highlighter</th>
+<th>Author</th>
+<th>License</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="https://github.com/isagalaev/highlight.js">highlight.js</a></td>
+<td>Software Maniacs</td>
+<td>MIT</td>
+</tr>
+<tr>
+<td><a href="http://code.google.com/p/google-code-prettify/">Google Prettify</a></td>
+<td>Google</td>
+<td>Apache</td>
+</tr>
+<tr>
+<td><a href="http://cran.r-project.org/web/packages/highlight/index.html">highlight</a></td>
+<td>Romain Francois</td>
+<td>GPL</td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="far-next" id="slide-20" style="background:;" data-slide-num="21" data-total-slides="25">
+  <hgroup>
+    <h2>Markdown-HTML5 Converters</h2>
+  </hgroup>
+  <article>
+    <p>I have extensively borrowed ideas and features from HTML5 slide converters written in other languages. I have also borrowed from blogging frameworks.</p>
+
+<table><thead>
+<tr>
+<th>Language</th>
+<th>Framework</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Ruby</td>
+<td><a href="http://github.com/schacon/showoff">showoff</a></td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td><a href="https://github.com/geraldb/slideshow">slideshow</a></td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td><a href="https://github.com/infews/keydown">keydown</a></td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td><a href="https://github.com/ruhoh">ruhoh</a></td>
+</tr>
+<tr>
+<td>Python</td>
+<td><a href="https://github.com/nyergler/hieroglyph">hieroglyph</a></td>
+</tr>
+<tr>
+<td>Python</td>
+<td><a href="https://github.com/adamzap/landslide">landslide</a></td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td><a href="https://github.com/jgm/pandoc">pandoc</a></td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="smaller" id="slide-21" style="background:;" data-slide-num="22" data-total-slides="25">
+  <hgroup>
+    <h2>License</h2>
+  </hgroup>
+  <article>
+    <p><code>slidify</code> is made available under the MIT License. All included <code>css</code> and <code>javascript</code> are licensed under the terms specified by the respective libraries.</p>
+
+<p><strong>MIT License</strong></p>
+
+<p>Copyright (C) 2012 Ramnath Vaidyanathan</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="segue dark" id="slide-22" style="background:;" data-slide-num="23" data-total-slides="25">
+  <hgroup>
+    <h2>References</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-23" style="background:;" data-slide-num="24" data-total-slides="25">
+  <hgroup>
+    <h2>HTML5 Slides with R</h2>
+  </hgroup>
+  <article>
+    <ol>
+<li><a href="http://goo.gl/L79xW">An Introduction to R</a></li>
+<li><a href="http://goo.gl/7C907">How to Make HTML Slides with knitr</a></li>
+<li><a href="http://goo.gl/Uqnq3">Fancy HTML5 Slides with knitr and Pandoc</a></li>
+<li><a href="http://goo.gl/QlTA4">Visualize World Bank Data</a></li>
+<li><a href="http://goo.gl/kdhBO">Interactive Presentations with deck.js</a></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-24" style="background:;" data-slide-num="25" data-total-slides="25">
+  <hgroup>
+    <h2>R Markdown</h2>
+  </hgroup>
+  <article>
+    <ol>
+<li><a href="http://goo.gl/oTeV5">Interactive Reports in R with knitr and RStudio</a></li>
+<li><a href="http://goo.gl/ALjtQ">Getting Started with R Markdown, knitr and RStudio</a></li>
+<li><a href="http://goo.gl/84D5E">Dynamic Content RStudio, Markdown and Marked</a></li>
+<li><a href="http://goo.gl/KKdaf">Using Markdown with RStudio</a></li>
+<li><a href="http://goo.gl/ZQF1u">Example Reproducible Report using R Markdown</a></li>
+<li><a href="http://goo.gl/cVS9W">Interactive Slides with R, googleVis and knitR</a></li>
+<li><a href="http://goo.gl/ZTSD7">knitr, Slideshows and Dropbox</a></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  <div class="slide-area" id="prev-slide-area"></div><div class="slide-area" id="next-slide-area"></div></slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+
+<!-- Grab CDN jQuery, fall back to local if offline -->
+<script src="./Slidify_files/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="../io2012/libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
+<!-- Load Javascripts for Widgets -->
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="./Slidify_files/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+</body></html>

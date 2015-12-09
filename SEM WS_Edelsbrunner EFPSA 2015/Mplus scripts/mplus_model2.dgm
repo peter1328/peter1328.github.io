@@ -1,0 +1,51 @@
+VERSION 1.1.0
+INPUT
+TITLE:
+  FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+DATA:
+ FILE IS "RiskDataMplus.csv";
+VARIABLE:
+ NAMES ARE
+ID NR Country Gender Age LiveArea Car Bedroom Travel
+Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+;
+USEVARIABLES =
+risksum gender
+;
+MISSING = ALL(9999);
+ANALYSIS:
+TYPE = GENERAL;
+OUTPUT:
+stdyx residual tech1 modindices(all 3.84);
+MODEL:
+risksum ON gender;
+INPUT_END
+2
+2
+0
+2
+ML
+1
+GENERAL
+0
+1
+0
+1
+risksum gender
+2
+1 0
+0
+0
+1 1 gender risksum   -0.272    0.286
+4 1 risksum    7.934    0.569
+11 1 gender risksum   -0.048    0.051
+14 1 risksum    0.998    0.005
+31 1 gender risksum   -0.272    0.286
+34 1 risksum    7.934    0.569

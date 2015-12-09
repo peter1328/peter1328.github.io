@@ -1,0 +1,77 @@
+VERSION 1.1.0
+INPUT
+TITLE:
+  FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+DATA:
+ FILE IS "RiskDataMplus.csv";
+VARIABLE:
+ NAMES ARE
+ID NR Country Gender Age LiveArea Car Bedroom Travel
+Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+;
+USEVARIABLES =
+AvrSex AvrTob AvrAlc ZMar1
+;
+MISSING = ALL(9999);
+ANALYSIS:
+TYPE = GENERAL;
+OUTPUT:
+stdyx residual tech1 modindices(all 3.84);
+MODEL:
+Risk BY AvrSex* AvrTob AvrAlc ZMar1
+;
+Risk@1;
+[AvrSex AvrTob AvrAlc ZMar1];
+INPUT_END
+2
+2
+0
+2
+ML
+1
+GENERAL
+0
+4
+1
+0
+avrsex avrtob avralc zmar1 risk
+1
+-1 -1 -1 -1 0
+0
+1
+risk
+avrsex avrtob avralc zmar1
+1 1 risk avrsex    0.478    0.052
+1 1 risk avrtob    0.706    0.052
+1 1 risk avralc    0.586    0.049
+1 1 risk zmar1    0.598    0.054
+4 1 avrsex    0.648    0.053
+4 1 avrtob    0.423    0.054
+4 1 avralc    0.477    0.047
+4 1 zmar1    0.640    0.058
+5 1 risk    1.000    0.000
+11 1 risk avrsex    0.510    0.047
+11 1 risk avrtob    0.735    0.040
+11 1 risk avralc    0.647    0.042
+11 1 risk zmar1    0.599    0.044
+14 1 avrsex    0.740    0.048
+14 1 avrtob    0.459    0.059
+14 1 avralc    0.581    0.054
+14 1 zmar1    0.642    0.053
+15 1 risk    1.000    0.000
+31 1 risk avrsex    0.478    0.052
+31 1 risk avrtob    0.706    0.052
+31 1 risk avralc    0.586    0.049
+31 1 risk zmar1    0.598    0.054
+34 1 avrsex    0.648    0.053
+34 1 avrtob    0.423    0.054
+34 1 avralc    0.477    0.047
+34 1 zmar1    0.640    0.058
+35 1 risk    1.000    0.000

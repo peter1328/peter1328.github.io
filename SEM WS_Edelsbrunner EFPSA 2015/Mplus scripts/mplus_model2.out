@@ -1,0 +1,383 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+04/19/2015   9:10 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  FMA-LTA FS 0113_2C2F
+  ALLES richtig!
+
+  DATA: FILE IS "RiskDataMplus.csv";
+
+  VARIABLE: NAMES ARE
+  ID NR Country Gender Age LiveArea Car Bedroom Travel
+  Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+  LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+  Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+  Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+  Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+  ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+  ;
+
+  USEVARIABLES =
+  risksum gender
+  ;
+  MISSING = ALL(9999);
+
+  ANALYSIS:
+  TYPE = GENERAL;
+
+  MODEL:
+  risksum ON gender;
+
+  OUTPUT:
+  stdyx residual tech1 modindices(all 3.84);
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  1
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  18
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         389
+
+Number of dependent variables                                    1
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   RISKSUM
+
+Observed independent variables
+   GENDER
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  RiskDataMplus.csv
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM        1.000
+ GENDER         1.000         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        3
+
+Loglikelihood
+
+          H0 Value                        -954.808
+          H1 Value                        -954.808
+
+Information Criteria
+
+          Akaike (AIC)                    1915.616
+          Bayesian (BIC)                  1927.507
+          Sample-Size Adjusted BIC        1917.988
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.000
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                              0.911
+          Degrees of Freedom                     1
+          P-Value                           0.3399
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ RISKSUM  ON
+    GENDER            -0.272      0.286     -0.952      0.341
+
+ Intercepts
+    RISKSUM            0.143      0.202      0.711      0.477
+
+ Residual Variances
+    RISKSUM            7.934      0.569     13.946      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ RISKSUM  ON
+    GENDER            -0.048      0.051     -0.953      0.341
+
+ Intercepts
+    RISKSUM            0.051      0.071      0.712      0.477
+
+ Residual Variances
+    RISKSUM            0.998      0.005    204.598      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    RISKSUM            0.002      0.005      0.476      0.634
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.146E+00
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              RISKSUM       GENDER
+              ________      ________
+      1         0.008         0.499
+
+
+           Residuals for Means/Intercepts/Thresholds
+              RISKSUM       GENDER
+              ________      ________
+      1         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              RISKSUM       GENDER
+              ________      ________
+      1         0.401         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              RISKSUM       GENDER
+              ________      ________
+      1         0.002         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM        7.953
+ GENDER        -0.068         0.250
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM        0.000
+ GENDER         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM        0.027
+ GENDER        -0.567         0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM        0.000
+ GENDER        -0.003         0.000
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index     3.840
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+WITH Statements
+
+GENDER   WITH RISKSUM            999.000     0.000      0.000        0.000
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              RISKSUM       GENDER
+              ________      ________
+      1           0             0
+
+
+           LAMBDA
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM            0             0
+ GENDER             0             0
+
+
+           THETA
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM            0
+ GENDER             0             0
+
+
+           ALPHA
+              RISKSUM       GENDER
+              ________      ________
+      1           1             0
+
+
+           BETA
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM            0             2
+ GENDER             0             0
+
+
+           PSI
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM            3
+ GENDER             0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              RISKSUM       GENDER
+              ________      ________
+      1         0.000         0.000
+
+
+           LAMBDA
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM        1.000         0.000
+ GENDER         0.000         1.000
+
+
+           THETA
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM        0.000
+ GENDER         0.000         0.000
+
+
+           ALPHA
+              RISKSUM       GENDER
+              ________      ________
+      1         0.008         0.499
+
+
+           BETA
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM        0.000         0.000
+ GENDER         0.000         0.000
+
+
+           PSI
+              RISKSUM       GENDER
+              ________      ________
+ RISKSUM        3.987
+ GENDER         0.000         0.250
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\petere\desktop\sem_ws\mplus_model2.dgm
+
+     Beginning Time:  21:10:40
+        Ending Time:  21:10:40
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

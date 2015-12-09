@@ -1,0 +1,406 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+04/19/2015   9:23 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  FMA-LTA FS 0113_2C2F
+  ALLES richtig!
+
+  DATA: FILE IS "RiskDataMplus.csv";
+
+  VARIABLE: NAMES ARE
+  ID NR Country Gender Age LiveArea Car Bedroom Travel
+  Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+  LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+  Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+  Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+  Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+  ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+  ;
+
+  USEVARIABLES =
+  ZPop AvrTob Zsports
+  ;
+  MISSING = ALL(9999);
+
+  ANALYSIS:
+  TYPE = GENERAL;
+
+  MODEL:
+
+  ZPop ON AvrTob Zsports;
+  AvrTob ON Zsports;
+
+  ! Mediation model
+
+
+
+  OUTPUT:
+  stdyx residual tech1 modindices(all 3.84);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         408
+
+Number of dependent variables                                    2
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   ZPOP        AVRTOB
+
+Observed independent variables
+   ZSPORTS
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  RiskDataMplus.csv
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             2
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP           1.000
+ AVRTOB         0.973         0.973
+ ZSPORTS        1.000         0.973         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        7
+
+Loglikelihood
+
+          H0 Value                       -1066.024
+          H1 Value                       -1066.024
+
+Information Criteria
+
+          Akaike (AIC)                    2146.048
+          Bayesian (BIC)                  2174.127
+          Sample-Size Adjusted BIC        2151.915
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.000
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                             95.792
+          Degrees of Freedom                     3
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ ZPOP     ON
+    AVRTOB             0.320      0.045      7.154      0.000
+    ZSPORTS            0.331      0.044      7.450      0.000
+
+ AVRTOB   ON
+    ZSPORTS            0.011      0.050      0.225      0.822
+
+ Intercepts
+    ZPOP               0.004      0.043      0.096      0.923
+    AVRTOB            -0.004      0.048     -0.075      0.941
+
+ Residual Variances
+    ZPOP               0.741      0.052     14.261      0.000
+    AVRTOB             0.923      0.065     14.112      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ ZPOP     ON
+    AVRTOB             0.317      0.042      7.488      0.000
+    ZSPORTS            0.328      0.042      7.826      0.000
+
+ AVRTOB   ON
+    ZSPORTS            0.011      0.050      0.226      0.822
+
+ Intercepts
+    ZPOP               0.004      0.044      0.096      0.923
+    AVRTOB            -0.004      0.050     -0.075      0.941
+
+ Residual Variances
+    ZPOP               0.789      0.036     21.932      0.000
+    AVRTOB             1.000      0.001    881.966      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    ZPOP               0.211      0.036      5.848      0.000
+    AVRTOB             0.000      0.001      0.113      0.910
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.426E+00
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+      1         0.002        -0.004        -0.002
+
+
+           Residuals for Means/Intercepts/Thresholds
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP           0.939
+ AVRTOB         0.299         0.923
+ ZSPORTS        0.309         0.010         0.925
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP           0.000
+ AVRTOB         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP           0.000
+ AVRTOB         0.000         0.054
+ ZSPORTS      999.000         0.000         0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP           0.000
+ AVRTOB         0.000         0.001
+ ZSPORTS        0.000         0.000         0.000
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index     3.840
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+      1           0             0             0
+
+
+           LAMBDA
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP               0             0             0
+ AVRTOB             0             0             0
+ ZSPORTS            0             0             0
+
+
+           THETA
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP               0
+ AVRTOB             0             0
+ ZSPORTS            0             0             0
+
+
+           ALPHA
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+      1           1             2             0
+
+
+           BETA
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP               0             3             4
+ AVRTOB             0             0             5
+ ZSPORTS            0             0             0
+
+
+           PSI
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP               6
+ AVRTOB             0             7
+ ZSPORTS            0             0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           LAMBDA
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP           1.000         0.000         0.000
+ AVRTOB         0.000         1.000         0.000
+ ZSPORTS        0.000         0.000         1.000
+
+
+           THETA
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP           0.000
+ AVRTOB         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000
+
+
+           ALPHA
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+      1         0.002        -0.004        -0.002
+
+
+           BETA
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP           0.000         0.000         0.000
+ AVRTOB         0.000         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000
+
+
+           PSI
+              ZPOP          AVRTOB        ZSPORTS
+              ________      ________      ________
+ ZPOP           0.471
+ AVRTOB         0.000         0.464
+ ZSPORTS        0.000         0.000         0.925
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\petere\desktop\sem_ws\mplus_model6.dgm
+
+     Beginning Time:  21:23:52
+        Ending Time:  21:23:52
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

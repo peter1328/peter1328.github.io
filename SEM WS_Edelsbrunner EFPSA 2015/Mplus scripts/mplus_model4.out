@@ -1,0 +1,414 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+04/19/2015   9:18 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  FMA-LTA FS 0113_2C2F
+  ALLES richtig!
+
+  DATA: FILE IS "RiskDataMplus.csv";
+
+  VARIABLE: NAMES ARE
+  ID NR Country Gender Age LiveArea Car Bedroom Travel
+  Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+  LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+  Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+  Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+  Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+  ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+  ;
+
+  USEVARIABLES =
+  risksum ZPop ZLike
+  ;
+  MISSING = ALL(9999);
+
+  ANALYSIS:
+  TYPE = GENERAL;
+
+  MODEL:
+
+  risksum ON ZPop ZLike; ! Regression
+
+  [ZPop ZLike]; ! Estimate means
+
+  OUTPUT:
+  stdyx residual tech1 modindices(all 3.84);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         408
+
+Number of dependent variables                                    1
+Number of independent variables                                  2
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   RISKSUM
+
+Observed independent variables
+   ZPOP        ZLIKE
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  RiskDataMplus.csv
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             2
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM        0.956
+ ZPOP           0.956         1.000
+ ZLIKE          0.956         1.000         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        9
+
+Loglikelihood
+
+          H0 Value                       -2021.860
+          H1 Value                       -2021.860
+
+Information Criteria
+
+          Akaike (AIC)                    4061.720
+          Bayesian (BIC)                  4097.821
+          Sample-Size Adjusted BIC        4069.263
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.000
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                             98.582
+          Degrees of Freedom                     2
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ RISKSUM  ON
+    ZPOP               1.428      0.136     10.508      0.000
+    ZLIKE             -0.652      0.137     -4.760      0.000
+
+ ZLIKE    WITH
+    ZPOP               0.313      0.050      6.321      0.000
+
+ Means
+    ZPOP               0.002      0.048      0.049      0.961
+    ZLIKE              0.055      0.049      1.141      0.254
+
+ Intercepts
+    RISKSUM            0.046      0.126      0.365      0.715
+
+ Variances
+    ZPOP               0.939      0.066     14.283      0.000
+    ZLIKE              0.963      0.067     14.283      0.000
+
+ Residual Variances
+    RISKSUM            6.161      0.441     13.964      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ RISKSUM  ON
+    ZPOP               0.492      0.042     11.779      0.000
+    ZLIKE             -0.228      0.047     -4.847      0.000
+
+ ZLIKE    WITH
+    ZPOP               0.329      0.044      7.466      0.000
+
+ Means
+    ZPOP               0.002      0.050      0.049      0.961
+    ZLIKE              0.057      0.050      1.141      0.254
+
+ Intercepts
+    RISKSUM            0.016      0.045      0.365      0.715
+
+ Variances
+    ZPOP               1.000      0.000    999.000    999.000
+    ZLIKE              1.000      0.000    999.000    999.000
+
+ Residual Variances
+    RISKSUM            0.780      0.037     21.237      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    RISKSUM            0.220      0.037      5.999      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.514E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+      1         0.013         0.002         0.055
+
+
+           Residuals for Means/Intercepts/Thresholds
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+      1       999.000         0.000         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM        7.901
+ ZPOP           1.137         0.939
+ ZLIKE         -0.180         0.313         0.963
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM        0.000
+ ZPOP           0.000         0.000
+ ZLIKE          0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM      999.000
+ ZPOP         999.000         0.000
+ ZLIKE        999.000         0.000         0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM        0.000
+ ZPOP           0.000         0.000
+ ZLIKE          0.000         0.000         0.000
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index     3.840
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+      1           0             0             0
+
+
+           LAMBDA
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM            0             0             0
+ ZPOP               0             0             0
+ ZLIKE              0             0             0
+
+
+           THETA
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM            0
+ ZPOP               0             0
+ ZLIKE              0             0             0
+
+
+           ALPHA
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+      1           1             2             3
+
+
+           BETA
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM            0             4             5
+ ZPOP               0             0             0
+ ZLIKE              0             0             0
+
+
+           PSI
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM            6
+ ZPOP               0             7
+ ZLIKE              0             8             9
+
+
+     STARTING VALUES
+
+
+           NU
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           LAMBDA
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM        1.000         0.000         0.000
+ ZPOP           0.000         1.000         0.000
+ ZLIKE          0.000         0.000         1.000
+
+
+           THETA
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM        0.000
+ ZPOP           0.000         0.000
+ ZLIKE          0.000         0.000         0.000
+
+
+           ALPHA
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+      1         0.008         0.000         0.000
+
+
+           BETA
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM        0.000         0.000         0.000
+ ZPOP           0.000         0.000         0.000
+ ZLIKE          0.000         0.000         0.000
+
+
+           PSI
+              RISKSUM       ZPOP          ZLIKE
+              ________      ________      ________
+ RISKSUM        3.976
+ ZPOP           0.000         0.471
+ ZLIKE          0.000         0.000         0.483
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\petere\desktop\sem_ws\mplus_model4.dgm
+
+     Beginning Time:  21:18:12
+        Ending Time:  21:18:12
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

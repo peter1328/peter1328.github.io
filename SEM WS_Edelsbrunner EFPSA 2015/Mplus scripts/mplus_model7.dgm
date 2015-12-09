@@ -1,0 +1,94 @@
+VERSION 1.1.0
+INPUT
+TITLE:
+  FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+DATA:
+ FILE IS "RiskDataMplus.csv";
+VARIABLE:
+ NAMES ARE
+ID NR Country Gender Age LiveArea Car Bedroom Travel
+Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+;
+USEVARIABLES =
+ZPop ZLike
+ZMar1 AvrSex AvrTob AvrAlc
+;
+MISSING = ALL(9999);
+ANALYSIS:
+TYPE = GENERAL;
+OUTPUT:
+stdyx residual tech1 modindices(all 3.84);
+MODEL:
+Risk BY ZMar1* AvrSex AvrTob AvrAlc;
+Risk@1;
+Risk ON ZPop;
+Risk ON Zlike;
+ZPop WITH ZLike;
+INPUT_END
+2
+2
+0
+2
+ML
+1
+GENERAL
+0
+6
+1
+0
+zmar1 avrsex avrtob avralc zpop zlike risk
+2
+-1 -1 -1 -1 0 0 1
+0
+1
+risk
+zmar1 avrsex avrtob avralc
+1 1 risk zmar1    0.504    0.045
+1 1 risk avrsex    0.404    0.043
+1 1 risk avrtob    0.562    0.045
+1 1 risk avralc    0.503    0.041
+1 1 zpop risk    0.728    0.079
+1 1 zlike risk   -0.299    0.069
+2 1 zpop zlike    0.313    0.050
+4 1 zmar1    0.631    0.055
+4 1 avrsex    0.640    0.051
+4 1 avrtob    0.466    0.049
+4 1 avralc    0.455    0.044
+4 1 risk    1.000    0.000
+5 1 zpop    0.939    0.066
+5 1 zlike    0.963    0.067
+11 1 risk zmar1    0.607    0.041
+11 1 risk avrsex    0.519    0.045
+11 1 risk avrtob    0.704    0.037
+11 1 risk avralc    0.668    0.039
+11 1 zpop risk    0.586    0.047
+11 1 zlike risk   -0.244    0.054
+12 1 zpop zlike    0.329    0.044
+14 1 zmar1    0.632    0.050
+14 1 avrsex    0.731    0.047
+14 1 avrtob    0.505    0.053
+14 1 avralc    0.554    0.052
+14 1 risk    0.691    0.048
+15 1 zpop    1.000    0.000
+15 1 zlike    1.000    0.000
+31 1 risk zmar1    0.606    0.052
+31 1 risk avrsex    0.486    0.050
+31 1 risk avrtob    0.676    0.049
+31 1 risk avralc    0.605    0.047
+31 1 zpop risk    0.605    0.046
+31 1 zlike risk   -0.249    0.054
+32 1 zpop zlike    0.313    0.050
+34 1 zmar1    0.631    0.055
+34 1 avrsex    0.640    0.051
+34 1 avrtob    0.466    0.049
+34 1 avralc    0.455    0.044
+34 1 risk    0.691    0.048
+35 1 zpop    0.939    0.066
+35 1 zlike    0.963    0.067

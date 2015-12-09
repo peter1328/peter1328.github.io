@@ -1,0 +1,1474 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+04/20/2015  11:08 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  FMA-LTA FS 0113_2C2F
+  ALLES richtig!
+
+  DATA: FILE IS "RiskDataMplus.csv";
+
+  VARIABLE: NAMES ARE
+  ID NR Country Gender Age LiveArea Car Bedroom Travel
+  Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+  LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+  Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+  Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+  Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+  ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+  ;
+
+  USEVARIABLES =
+  ZPop ZLike
+  ZMar1 AvrSex AvrTob AvrAlc
+  Zcheers Zhelpful Znice
+  Zmean Zbullies Zexclude
+  Zsports Zattrac
+  ;
+
+  MISSING = ALL(9999);
+
+  ANALYSIS:
+  TYPE = GENERAL;
+
+  MODEL:
+
+  Risk BY ZMar1* AvrSex AvrTob AvrAlc;
+  Risk@1;
+
+  Risk ON ZPop;
+  Risk ON Zlike@0;
+
+  ProSoc BY Zcheers Zhelpful Znice;
+
+  AntSoc BY Zmean Zbullies Zexclude;
+
+  ZPop ON Risk ProSoc AntSoc Zattrac Zsports;
+
+  ZLike ON ProSoc AntSoc Zattrac;
+
+  ZPop WITH ZLike;
+  Risk WITH Zsports;
+  Risk WITH ProSoc@0;
+
+  Zsports WITH ProSoc@0;
+  Zsports WITH AntSoc@0;
+
+  OUTPUT:
+  stdyx residual tech1 modindices(all 3.84);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         408
+
+Number of dependent variables                                   12
+Number of independent variables                                  2
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   ZPOP        ZLIKE       ZMAR1       AVRSEX      AVRTOB      AVRALC
+   ZCHEERS     ZHELPFUL    ZNICE       ZMEAN       ZBULLIES    ZEXCLUDE
+
+Observed independent variables
+   ZSPORTS     ZATTRAC
+
+Continuous latent variables
+   RISK        PROSOC      ANTSOC
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  RiskDataMplus.csv
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             7
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+ ZPOP           1.000
+ ZLIKE          1.000         1.000
+ ZMAR1          0.998         0.998         0.998
+ AVRSEX         0.988         0.988         0.988         0.988
+ AVRTOB         0.973         0.973         0.973         0.966         0.973
+ AVRALC         0.983         0.983         0.983         0.973         0.963
+ ZCHEERS        1.000         1.000         0.998         0.988         0.973
+ ZHELPFUL       1.000         1.000         0.998         0.988         0.973
+ ZNICE          1.000         1.000         0.998         0.988         0.973
+ ZMEAN          1.000         1.000         0.998         0.988         0.973
+ ZBULLIES       1.000         1.000         0.998         0.988         0.973
+ ZEXCLUDE       1.000         1.000         0.998         0.988         0.973
+ ZSPORTS        1.000         1.000         0.998         0.988         0.973
+ ZATTRAC        1.000         1.000         0.998         0.988         0.973
+
+
+           Covariance Coverage
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+ AVRALC         0.983
+ ZCHEERS        0.983         1.000
+ ZHELPFUL       0.983         1.000         1.000
+ ZNICE          0.983         1.000         1.000         1.000
+ ZMEAN          0.983         1.000         1.000         1.000         1.000
+ ZBULLIES       0.983         1.000         1.000         1.000         1.000
+ ZEXCLUDE       0.983         1.000         1.000         1.000         1.000
+ ZSPORTS        0.983         1.000         1.000         1.000         1.000
+ ZATTRAC        0.983         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+ ZBULLIES       1.000
+ ZEXCLUDE       1.000         1.000
+ ZSPORTS        1.000         1.000         1.000
+ ZATTRAC        1.000         1.000         1.000         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       48
+
+Loglikelihood
+
+          H0 Value                       -6116.476
+          H1 Value                       -5971.444
+
+Information Criteria
+
+          Akaike (AIC)                   12328.952
+          Bayesian (BIC)                 12521.493
+          Sample-Size Adjusted BIC       12369.181
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            290.063
+          Degrees of Freedom                    69
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.089
+          90 Percent C.I.                    0.078  0.099
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.917
+          TLI                                0.891
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           2742.176
+          Degrees of Freedom                    90
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.096
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ RISK     BY
+    ZMAR1              0.516      0.047     10.907      0.000
+    AVRSEX             0.409      0.044      9.198      0.000
+    AVRTOB             0.589      0.046     12.817      0.000
+    AVRALC             0.529      0.041     12.761      0.000
+
+ PROSOC   BY
+    ZCHEERS            1.000      0.000    999.000    999.000
+    ZHELPFUL           1.049      0.043     24.634      0.000
+    ZNICE              1.042      0.043     24.247      0.000
+
+ ANTSOC   BY
+    ZMEAN              1.000      0.000    999.000    999.000
+    ZBULLIES           1.039      0.049     21.419      0.000
+    ZEXCLUDE           0.779      0.051     15.323      0.000
+
+ RISK     ON
+    ZPOP               0.564      0.103      5.497      0.000
+    ZLIKE              0.000      0.000    999.000    999.000
+
+ ZPOP     ON
+    RISK               0.052      0.055      0.958      0.338
+    PROSOC             0.229      0.045      5.136      0.000
+    ANTSOC             0.392      0.050      7.769      0.000
+
+ ZLIKE    ON
+    PROSOC             0.505      0.055      9.233      0.000
+    ANTSOC            -0.298      0.053     -5.660      0.000
+
+ ZPOP     ON
+    ZATTRAC            0.445      0.038     11.666      0.000
+    ZSPORTS            0.222      0.033      6.754      0.000
+
+ ZLIKE    ON
+    ZATTRAC            0.123      0.041      2.965      0.003
+
+ RISK     WITH
+    ZSPORTS           -0.049      0.066     -0.750      0.454
+    PROSOC             0.000      0.000    999.000    999.000
+
+ ZSPORTS  WITH
+    PROSOC             0.000      0.000    999.000    999.000
+    ANTSOC             0.000      0.000    999.000    999.000
+
+ ANTSOC   WITH
+    PROSOC            -0.207      0.042     -4.902      0.000
+
+ ZPOP     WITH
+    ZLIKE              0.187      0.028      6.740      0.000
+
+ Means
+    ZSPORTS           -0.002      0.048     -0.039      0.969
+
+ Intercepts
+    ZPOP              -0.005      0.036     -0.151      0.880
+    ZLIKE              0.053      0.047      1.128      0.260
+    ZMAR1              0.000      0.047      0.004      0.997
+    AVRSEX            -0.003      0.045     -0.071      0.944
+    AVRTOB            -0.009      0.045     -0.190      0.849
+    AVRALC            -0.001      0.042     -0.024      0.981
+    ZCHEERS            0.051      0.051      1.011      0.312
+    ZHELPFUL           0.068      0.050      1.366      0.172
+    ZNICE              0.058      0.050      1.163      0.245
+    ZMEAN              0.000      0.048      0.008      0.993
+    ZBULLIES          -0.003      0.048     -0.057      0.955
+    ZEXCLUDE          -0.006      0.047     -0.134      0.894
+
+ Variances
+    ZSPORTS            0.925      0.065     14.283      0.000
+    PROSOC             0.769      0.073     10.541      0.000
+    ANTSOC             0.705      0.067     10.470      0.000
+
+ Residual Variances
+    ZPOP               0.420      0.040     10.487      0.000
+    ZLIKE              0.587      0.043     13.695      0.000
+    ZMAR1              0.640      0.056     11.419      0.000
+    AVRSEX             0.652      0.052     12.548      0.000
+    AVRTOB             0.457      0.049      9.238      0.000
+    AVRALC             0.446      0.044     10.038      0.000
+    ZCHEERS            0.287      0.026     11.129      0.000
+    ZHELPFUL           0.172      0.022      7.886      0.000
+    ZNICE              0.168      0.022      7.746      0.000
+    ZMEAN              0.233      0.027      8.493      0.000
+    ZBULLIES           0.195      0.028      7.075      0.000
+    ZEXCLUDE           0.458      0.036     12.543      0.000
+    RISK               1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ RISK     BY
+    ZMAR1              0.594      0.042     13.987      0.000
+    AVRSEX             0.502      0.046     10.961      0.000
+    AVRTOB             0.707      0.038     18.611      0.000
+    AVRALC             0.672      0.039     17.184      0.000
+
+ PROSOC   BY
+    ZCHEERS            0.853      0.016     52.815      0.000
+    ZHELPFUL           0.911      0.013     70.635      0.000
+    ZNICE              0.912      0.013     70.271      0.000
+
+ ANTSOC   BY
+    ZMEAN              0.867      0.018     47.343      0.000
+    ZBULLIES           0.892      0.017     51.758      0.000
+    ZEXCLUDE           0.695      0.029     23.795      0.000
+
+ RISK     ON
+    ZPOP               0.449      0.075      6.007      0.000
+    ZLIKE              0.000      0.000    999.000    999.000
+
+ ZPOP     ON
+    RISK               0.066      0.069      0.958      0.338
+    PROSOC             0.221      0.044      5.065      0.000
+    ANTSOC             0.361      0.045      8.037      0.000
+
+ ZLIKE    ON
+    PROSOC             0.461      0.044     10.543      0.000
+    ANTSOC            -0.261      0.044     -5.874      0.000
+
+ ZPOP     ON
+    ZATTRAC            0.494      0.039     12.725      0.000
+    ZSPORTS            0.235      0.035      6.638      0.000
+
+ ZLIKE    ON
+    ZATTRAC            0.129      0.044      2.921      0.003
+
+ RISK     WITH
+    ZSPORTS           -0.051      0.069     -0.750      0.453
+    PROSOC             0.000      0.000    999.000    999.000
+
+ ZSPORTS  WITH
+    PROSOC             0.000      0.000    999.000    999.000
+    ANTSOC             0.000      0.000    999.000    999.000
+
+ ANTSOC   WITH
+    PROSOC            -0.281      0.051     -5.521      0.000
+
+ ZPOP     WITH
+    ZLIKE              0.377      0.046      8.244      0.000
+
+ Means
+    ZSPORTS           -0.002      0.050     -0.039      0.969
+
+ Intercepts
+    ZPOP              -0.006      0.040     -0.151      0.880
+    ZLIKE              0.055      0.049      1.127      0.260
+    ZMAR1              0.000      0.047      0.004      0.997
+    AVRSEX            -0.003      0.048     -0.071      0.944
+    AVRTOB            -0.009      0.047     -0.190      0.849
+    AVRALC            -0.001      0.047     -0.024      0.981
+    ZCHEERS            0.050      0.050      1.010      0.312
+    ZHELPFUL           0.068      0.050      1.365      0.172
+    ZNICE              0.058      0.050      1.162      0.245
+    ZMEAN              0.000      0.050      0.008      0.993
+    ZBULLIES          -0.003      0.050     -0.057      0.955
+    ZEXCLUDE          -0.007      0.050     -0.134      0.894
+
+ Variances
+    ZSPORTS            1.000      0.000    999.000    999.000
+    PROSOC             1.000      0.000    999.000    999.000
+    ANTSOC             1.000      0.000    999.000    999.000
+
+ Residual Variances
+    ZPOP               0.506      0.044     11.558      0.000
+    ZLIKE              0.636      0.039     16.092      0.000
+    ZMAR1              0.647      0.051     12.802      0.000
+    AVRSEX             0.748      0.046     16.292      0.000
+    AVRTOB             0.500      0.054      9.320      0.000
+    AVRALC             0.548      0.053     10.429      0.000
+    ZCHEERS            0.272      0.028      9.847      0.000
+    ZHELPFUL           0.169      0.024      7.194      0.000
+    ZNICE              0.168      0.024      7.085      0.000
+    ZMEAN              0.248      0.032      7.826      0.000
+    ZBULLIES           0.203      0.031      6.610      0.000
+    ZEXCLUDE           0.516      0.041     12.705      0.000
+    RISK               0.762      0.044     17.375      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    ZPOP               0.494      0.044     11.276      0.000
+    ZLIKE              0.364      0.039      9.227      0.000
+    ZMAR1              0.353      0.051      6.993      0.000
+    AVRSEX             0.252      0.046      5.481      0.000
+    AVRTOB             0.500      0.054      9.305      0.000
+    AVRALC             0.452      0.053      8.592      0.000
+    ZCHEERS            0.728      0.028     26.407      0.000
+    ZHELPFUL           0.831      0.024     35.317      0.000
+    ZNICE              0.832      0.024     35.136      0.000
+    ZMEAN              0.752      0.032     23.671      0.000
+    ZBULLIES           0.797      0.031     25.879      0.000
+    ZEXCLUDE           0.484      0.041     11.898      0.000
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    RISK               0.238      0.044      5.429      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.169E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+      1         0.002         0.055         0.001        -0.003        -0.008
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+      1         0.000         0.051         0.068         0.058         0.000
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+      1        -0.003        -0.006        -0.002         0.018
+
+
+           Residuals for Means/Intercepts/Thresholds
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.001         0.000         0.002
+
+
+           Residuals for Means/Intercepts/Thresholds
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+      1        -0.001         0.000         0.000         0.000         0.000
+
+
+           Residuals for Means/Intercepts/Thresholds
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.242        -0.036         0.376
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+      1        -0.127         0.000         0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.023        -0.002         0.042
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+      1        -0.011         0.000         0.000         0.000         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+ ZPOP           0.830
+ ZLIKE          0.230         0.924
+ ZMAR1          0.264         0.067         0.990
+ AVRSEX         0.209         0.053         0.277         0.871
+ AVRTOB         0.301         0.076         0.399         0.316         0.912
+ AVRALC         0.270         0.069         0.358         0.284         0.409
+ ZCHEERS        0.098         0.450         0.029         0.023         0.033
+ ZHELPFUL       0.103         0.472         0.030         0.024         0.034
+ ZNICE          0.102         0.469         0.030         0.024         0.034
+ ZMEAN          0.236        -0.315         0.069         0.054         0.078
+ ZBULLIES       0.245        -0.327         0.071         0.057         0.082
+ ZEXCLUDE       0.184        -0.245         0.054         0.042         0.061
+ ZSPORTS        0.209         0.000         0.035         0.028         0.040
+ ZATTRAC        0.469         0.126         0.137         0.108         0.156
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+ AVRALC         0.813
+ ZCHEERS        0.029         1.056
+ ZHELPFUL       0.031         0.807         1.019
+ ZNICE          0.031         0.801         0.841         1.003
+ ZMEAN          0.070        -0.207        -0.217        -0.216         0.939
+ ZBULLIES       0.073        -0.215        -0.226        -0.224         0.733
+ ZEXCLUDE       0.055        -0.161        -0.169        -0.168         0.550
+ ZSPORTS        0.036         0.000         0.000         0.000         0.000
+ ZATTRAC        0.140         0.000         0.000         0.000         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+ ZBULLIES       0.957
+ ZEXCLUDE       0.572         0.886
+ ZSPORTS        0.000         0.000         0.925
+ ZATTRAC        0.000         0.000         0.000         1.025
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+ ZPOP           0.109
+ ZLIKE          0.084         0.039
+ ZMAR1          0.027        -0.133         0.009
+ AVRSEX         0.013        -0.140         0.053         0.004
+ AVRTOB         0.000        -0.105         0.020         0.003         0.012
+ AVRALC         0.073        -0.043        -0.027        -0.014         0.021
+ ZCHEERS        0.204        -0.025        -0.116         0.055         0.036
+ ZHELPFUL       0.107         0.036        -0.149        -0.035        -0.090
+ ZNICE          0.136         0.088        -0.151        -0.039        -0.066
+ ZMEAN          0.056         0.020         0.156         0.076         0.145
+ ZBULLIES       0.028         0.017         0.126         0.086         0.135
+ ZEXCLUDE       0.068        -0.105         0.159         0.150         0.174
+ ZSPORTS        0.100         0.044         0.089         0.041        -0.028
+ ZATTRAC        0.079         0.161        -0.115         0.080        -0.005
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+ AVRALC         0.007
+ ZCHEERS       -0.001         0.000
+ ZHELPFUL      -0.072         0.012         0.000
+ ZNICE         -0.043        -0.001        -0.006         0.000
+ ZMEAN          0.066         0.049         0.029        -0.014         0.000
+ ZBULLIES       0.116         0.064        -0.006        -0.021         0.008
+ ZEXCLUDE       0.129         0.026        -0.058        -0.090        -0.027
+ ZSPORTS        0.045        -0.073        -0.039        -0.075         0.168
+ ZATTRAC        0.069         0.406         0.302         0.369        -0.024
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+ ZBULLIES       0.000
+ ZEXCLUDE       0.002         0.000
+ ZSPORTS        0.173         0.122         0.000
+ ZATTRAC       -0.009         0.091         0.042         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+ ZPOP           2.713
+ ZLIKE          2.999         1.775
+ ZMAR1          0.810        -2.886         0.696
+ AVRSEX         0.377        -3.194         1.932         0.514
+ AVRTOB         0.014        -2.407         1.068         0.153         0.860
+ AVRALC         2.590        -1.044        -1.338        -0.675         1.422
+ ZCHEERS        5.788        -1.631        -2.325         1.160         0.752
+ ZHELPFUL       3.527         2.874        -3.057        -0.756        -1.950
+ ZNICE          4.467         5.874        -3.110        -0.849        -1.446
+ ZMEAN          1.809         1.098         3.372         1.770         3.292
+ ZBULLIES       0.940         1.045         2.752         1.968         3.071
+ ZEXCLUDE       1.908        -3.370         3.488         3.470         3.900
+ ZSPORTS        2.932         0.932         2.557         1.130        -1.030
+ ZATTRAC        3.103         5.886        -2.808         1.936        -0.135
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+ AVRALC         0.675
+ ZCHEERS       -0.031       999.000
+ ZHELPFUL      -1.650         2.297         0.000
+ ZNICE         -0.982        -0.257       999.000         0.000
+ ZMEAN          1.633         1.849         1.301        -0.632         0.000
+ ZBULLIES       2.869         2.572        -0.301        -1.023         2.295
+ ZEXCLUDE       3.165         0.745        -1.773        -2.718        -4.144
+ ZSPORTS        1.641        -1.496        -0.815        -1.570         3.581
+ ZATTRAC        1.941         7.343         5.724         6.907        -0.496
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+ ZBULLIES       0.000
+ ZEXCLUDE       0.255         0.000
+ ZSPORTS        3.646         2.695         0.000
+ ZATTRAC       -0.182         1.915         0.878         0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+ ZPOP           1.662
+ ZLIKE          1.691         0.584
+ ZMAR1          0.538        -2.728         0.126
+ AVRSEX         0.272        -3.060         1.068         0.070
+ AVRTOB         0.008        -2.227         0.391         0.067         0.185
+ AVRALC         1.567        -0.970        -0.560        -0.327         0.424
+ ZCHEERS        3.967        -0.469        -2.266         1.139         0.725
+ ZHELPFUL       2.154         0.662        -2.969        -0.740        -1.872
+ ZNICE          2.751         1.575        -3.020        -0.831        -1.387
+ ZMEAN          1.148         0.412         3.146         1.674         2.987
+ ZBULLIES       0.579         0.344         2.554         1.857         2.771
+ ZEXCLUDE       1.454        -2.142         3.333         3.350         3.666
+ ZSPORTS        2.058         0.932         1.852         0.920        -0.608
+ ZATTRAC        1.412         3.141        -2.286         1.663        -0.100
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+ AVRALC         0.117
+ ZCHEERS       -0.030         0.000
+ ZHELPFUL      -1.589         0.177         0.000
+ ZNICE         -0.946        -0.011        -0.094         0.000
+ ZMEAN          1.481         0.987         0.581        -0.288         0.000
+ ZBULLIES       2.593         1.267        -0.124        -0.418         0.135
+ ZEXCLUDE       2.976         0.532        -1.208        -1.860        -0.521
+ ZSPORTS        1.041        -1.496        -0.815        -1.570         3.581
+ ZATTRAC        1.475         7.343         5.724         6.907        -0.496
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+ ZBULLIES       0.000
+ ZEXCLUDE       0.030         0.000
+ ZSPORTS        3.646         2.695         0.000
+ ZATTRAC       -0.182         1.915         0.878         0.000
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index     3.840
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+ON/BY Statements
+
+ZMAR1    ON PROSOC   /
+PROSOC   BY ZMAR1                 10.979    -0.168     -0.147       -0.148
+ZMAR1    ON ANTSOC   /
+ANTSOC   BY ZMAR1                  4.424     0.116      0.097        0.098
+ZCHEERS  ON RISK     /
+RISK     BY ZCHEERS               14.303     0.113      0.130        0.126
+ZCHEERS  ON ANTSOC   /
+ANTSOC   BY ZCHEERS                8.982     0.119      0.100        0.097
+ZHELPFUL ON RISK     /
+RISK     BY ZHELPFUL               5.098    -0.059     -0.067       -0.067
+ZNICE    ON ANTSOC   /
+ANTSOC   BY ZNICE                  5.540    -0.082     -0.069       -0.069
+ZEXCLUDE ON RISK     /
+RISK     BY ZEXCLUDE               8.875     0.109      0.124        0.132
+ZEXCLUDE ON PROSOC   /
+PROSOC   BY ZEXCLUDE               4.005    -0.089     -0.078       -0.083
+RISK     ON PROSOC   /
+PROSOC   BY RISK                  13.951    -0.272     -0.208       -0.208
+RISK     ON ANTSOC   /
+ANTSOC   BY RISK                  20.400     0.378      0.277        0.277
+ANTSOC   ON RISK     /
+RISK     BY ANTSOC                19.713     0.241      0.329        0.329
+
+ON Statements
+
+RISK     ON ZLIKE                 18.328    -0.293     -0.256       -0.246
+RISK     ON AVRALC                 5.211    -0.533     -0.465       -0.420
+RISK     ON ZCHEERS                4.069    -0.120     -0.105       -0.108
+RISK     ON ZHELPFUL              14.633    -0.233     -0.203       -0.205
+RISK     ON ZNICE                 13.340    -0.224     -0.195       -0.196
+RISK     ON ZMEAN                 12.112     0.237      0.207        0.200
+RISK     ON ZBULLIES              16.109     0.272      0.238        0.232
+RISK     ON ZEXCLUDE              22.824     0.324      0.283        0.266
+PROSOC   ON ZPOP                  43.428     0.559      0.638        0.581
+PROSOC   ON ZLIKE                 58.998     2.699      3.078        2.958
+PROSOC   ON ZMAR1                  5.724    -0.110     -0.126       -0.125
+PROSOC   ON ZCHEERS                8.971     1.001      1.141        1.173
+PROSOC   ON ZNICE                  5.550    -1.178     -1.344       -1.346
+PROSOC   ON ZEXCLUDE               4.005    -0.138     -0.157       -0.148
+PROSOC   ON ZATTRAC               59.039     0.331      0.378        0.382
+ANTSOC   ON ZPOP                  12.750     0.297      0.353        0.322
+ANTSOC   ON ZLIKE                  3.854     0.675      0.804        0.773
+ANTSOC   ON ZMAR1                  8.644     0.138      0.165        0.164
+ANTSOC   ON AVRSEX                 5.898     0.120      0.142        0.133
+ANTSOC   ON AVRTOB                12.649     0.182      0.216        0.207
+ANTSOC   ON AVRALC                 7.061     0.142      0.169        0.152
+ANTSOC   ON ZCHEERS                8.981     0.269      0.321        0.329
+ANTSOC   ON ZNICE                  5.541    -0.317     -0.377       -0.378
+ANTSOC   ON ZEXCLUDE               4.005    -0.470     -0.559       -0.527
+ANTSOC   ON ZSPORTS               12.898     0.159      0.190        0.182
+ANTSOC   ON ZATTRAC                3.854     0.083      0.099        0.100
+ZPOP     ON ZMAR1                  3.994     0.095      0.095        0.104
+ZPOP     ON ZCHEERS                7.030     0.170      0.170        0.192
+ZPOP     ON ZBULLIES               6.529    -0.286     -0.286       -0.307
+ZLIKE    ON ZPOP                   6.935     0.460      0.460        0.436
+ZLIKE    ON AVRSEX                 8.462    -0.121     -0.121       -0.118
+ZLIKE    ON ZCHEERS               17.479    -0.321     -0.321       -0.344
+ZLIKE    ON ZNICE                  9.817     0.366      0.366        0.381
+ZLIKE    ON ZBULLIES               5.578     0.298      0.298        0.304
+ZLIKE    ON ZEXCLUDE              18.024    -0.244     -0.244       -0.239
+ZLIKE    ON ZSPORTS                8.997     0.120      0.120        0.121
+ZMAR1    ON ZLIKE                  4.825    -0.099     -0.099       -0.096
+ZMAR1    ON AVRALC                 4.069    -0.191     -0.191       -0.173
+ZMAR1    ON ZCHEERS               12.699    -0.149     -0.149       -0.153
+ZMAR1    ON ZHELPFUL               7.558    -0.117     -0.117       -0.118
+ZMAR1    ON ZNICE                 10.067    -0.136     -0.136       -0.137
+ZMAR1    ON ZMEAN                  4.843     0.099      0.099        0.096
+ZMAR1    ON ZATTRAC               13.207    -0.164     -0.164       -0.166
+AVRSEX   ON ZLIKE                  7.079    -0.118     -0.118       -0.121
+AVRTOB   ON ZSPORTS                6.046    -0.109     -0.109       -0.110
+AVRALC   ON ZPOP                   5.349     0.133      0.133        0.134
+AVRALC   ON ZMAR1                  4.069    -0.133     -0.133       -0.147
+AVRALC   ON ZATTRAC                4.027     0.081      0.081        0.090
+ZCHEERS  ON ZPOP                  14.036     0.124      0.124        0.110
+ZCHEERS  ON ZLIKE                 11.857    -0.131     -0.131       -0.122
+ZCHEERS  ON AVRSEX                12.185     0.111      0.111        0.101
+ZCHEERS  ON AVRTOB                14.777     0.120      0.120        0.112
+ZCHEERS  ON ZHELPFUL              13.059     0.791      0.791        0.778
+ZCHEERS  ON ZBULLIES               7.334     0.086      0.086        0.082
+ZCHEERS  ON ZEXCLUDE              12.234     0.113      0.113        0.103
+ZCHEERS  ON ZATTRAC               15.092     0.114      0.114        0.112
+ZHELPFUL ON AVRTOB                 5.029    -0.061     -0.061       -0.057
+ZHELPFUL ON ZCHEERS               13.067     0.476      0.476        0.485
+ZHELPFUL ON ZNICE                 15.280    -1.055     -1.055       -1.047
+ZNICE    ON ZLIKE                 15.942     0.136      0.136        0.131
+ZNICE    ON ZHELPFUL              15.282    -1.030     -1.030       -1.038
+ZNICE    ON ZMEAN                  4.197    -0.057     -0.057       -0.055
+ZNICE    ON ZEXCLUDE               6.452    -0.071     -0.071       -0.067
+ZNICE    ON ZATTRAC                7.008     0.067      0.067        0.067
+ZMEAN    ON ZBULLIES              14.390     1.025      1.025        1.035
+ZMEAN    ON ZEXCLUDE              10.209    -0.215     -0.215       -0.209
+ZBULLIES ON ZMEAN                 14.388     0.856      0.856        0.848
+ZEXCLUDE ON ZLIKE                 14.384    -0.155     -0.155       -0.159
+ZEXCLUDE ON AVRSEX                 8.193     0.109      0.109        0.108
+ZEXCLUDE ON AVRTOB                 5.405     0.088      0.088        0.089
+ZEXCLUDE ON AVRALC                 4.196     0.081      0.081        0.078
+ZEXCLUDE ON ZNICE                  5.084    -0.084     -0.084       -0.089
+ZEXCLUDE ON ZMEAN                 10.208    -0.422     -0.422       -0.434
+ZEXCLUDE ON ZATTRAC                9.418     0.107      0.107        0.115
+
+WITH Statements
+
+PROSOC   WITH RISK                 7.851    -0.157     -0.179       -0.179
+ANTSOC   WITH RISK                13.589     0.219      0.261        0.261
+ZMAR1    WITH PROSOC               8.440    -0.111     -0.126       -0.158
+ZMAR1    WITH ZPOP                 3.993     0.061      0.061        0.118
+AVRSEX   WITH ZLIKE                7.540    -0.085     -0.085       -0.137
+AVRALC   WITH RISK                 5.211    -0.238     -0.238       -0.356
+AVRALC   WITH ZMAR1                4.069    -0.085     -0.085       -0.160
+ZCHEERS  WITH RISK                 4.800     0.079      0.079        0.148
+ZCHEERS  WITH PROSOC               8.979     0.287      0.327        0.611
+ZCHEERS  WITH ANTSOC               8.982     0.077      0.092        0.172
+ZCHEERS  WITH ZPOP                 7.028     0.049      0.049        0.141
+ZCHEERS  WITH ZLIKE               17.473    -0.092     -0.092       -0.225
+ZCHEERS  WITH AVRSEX               4.992     0.056      0.056        0.129
+ZCHEERS  WITH AVRTOB               6.166     0.058      0.058        0.160
+ZHELPFUL WITH ZCHEERS             13.065     0.136      0.136        0.614
+ZNICE    WITH PROSOC               5.540    -0.198     -0.226       -0.551
+ZNICE    WITH ANTSOC               5.540    -0.053     -0.063       -0.155
+ZNICE    WITH ZLIKE                9.824     0.062      0.062        0.196
+ZNICE    WITH ZHELPFUL            15.284    -0.178     -0.178       -1.042
+ZMEAN    WITH AVRALC               5.277    -0.050     -0.050       -0.156
+ZMEAN    WITH ZCHEERS              4.135    -0.035     -0.035       -0.136
+ZMEAN    WITH ZHELPFUL             4.868     0.033      0.033        0.165
+ZBULLIES WITH ZPOP                 6.529    -0.056     -0.056       -0.195
+ZBULLIES WITH ZLIKE                5.577     0.058      0.058        0.172
+ZBULLIES WITH AVRALC               4.721     0.047      0.047        0.159
+ZBULLIES WITH ZMEAN               14.389     0.200      0.200        0.937
+ZEXCLUDE WITH RISK                 7.200     0.116      0.116        0.172
+ZEXCLUDE WITH PROSOC               4.005    -0.063     -0.072       -0.106
+ZEXCLUDE WITH ANTSOC               4.005    -0.215     -0.256       -0.378
+ZEXCLUDE WITH ZLIKE               18.025    -0.112     -0.112       -0.216
+ZEXCLUDE WITH ZCHEERS              5.165     0.048      0.048        0.132
+ZEXCLUDE WITH ZMEAN               10.209    -0.098     -0.098       -0.301
+ZSPORTS  WITH ANTSOC              13.874     0.153      0.182        0.189
+ZSPORTS  WITH ZLIKE                8.587     0.109      0.109        0.148
+ZSPORTS  WITH AVRTOB               5.921    -0.100     -0.100       -0.155
+ZATTRAC  WITH PROSOC              59.039     0.339      0.387        0.382
+ZATTRAC  WITH ANTSOC               3.854     0.085      0.101        0.100
+ZATTRAC  WITH ZMAR1               13.207    -0.168     -0.168       -0.207
+ZATTRAC  WITH AVRALC               4.027     0.083      0.083        0.122
+ZATTRAC  WITH ZCHEERS             15.092     0.116      0.116        0.215
+ZATTRAC  WITH ZNICE                7.008     0.068      0.068        0.164
+ZATTRAC  WITH ZEXCLUDE             9.418     0.110      0.110        0.161
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+      1           0             0             0             0             0
+
+
+           NU
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+      1           0             0             0             0             0
+
+
+           NU
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+      1           0             0             0             0
+
+
+           LAMBDA
+              RISK          PROSOC        ANTSOC        ZPOP          ZLIKE
+              ________      ________      ________      ________      ________
+ ZPOP               0             0             0             0             0
+ ZLIKE              0             0             0             0             0
+ ZMAR1              0             0             0             0             0
+ AVRSEX             0             0             0             0             0
+ AVRTOB             0             0             0             0             0
+ AVRALC             0             0             0             0             0
+ ZCHEERS            0             0             0             0             0
+ ZHELPFUL           0             0             0             0             0
+ ZNICE              0             0             0             0             0
+ ZMEAN              0             0             0             0             0
+ ZBULLIES           0             0             0             0             0
+ ZEXCLUDE           0             0             0             0             0
+ ZSPORTS            0             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           LAMBDA
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZCHEERS
+              ________      ________      ________      ________      ________
+ ZPOP               0             0             0             0             0
+ ZLIKE              0             0             0             0             0
+ ZMAR1              0             0             0             0             0
+ AVRSEX             0             0             0             0             0
+ AVRTOB             0             0             0             0             0
+ AVRALC             0             0             0             0             0
+ ZCHEERS            0             0             0             0             0
+ ZHELPFUL           0             0             0             0             0
+ ZNICE              0             0             0             0             0
+ ZMEAN              0             0             0             0             0
+ ZBULLIES           0             0             0             0             0
+ ZEXCLUDE           0             0             0             0             0
+ ZSPORTS            0             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           LAMBDA
+              ZHELPFUL      ZNICE         ZMEAN         ZBULLIES      ZEXCLUDE
+              ________      ________      ________      ________      ________
+ ZPOP               0             0             0             0             0
+ ZLIKE              0             0             0             0             0
+ ZMAR1              0             0             0             0             0
+ AVRSEX             0             0             0             0             0
+ AVRTOB             0             0             0             0             0
+ AVRALC             0             0             0             0             0
+ ZCHEERS            0             0             0             0             0
+ ZHELPFUL           0             0             0             0             0
+ ZNICE              0             0             0             0             0
+ ZMEAN              0             0             0             0             0
+ ZBULLIES           0             0             0             0             0
+ ZEXCLUDE           0             0             0             0             0
+ ZSPORTS            0             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           LAMBDA
+              ZSPORTS       ZATTRAC
+              ________      ________
+ ZPOP               0             0
+ ZLIKE              0             0
+ ZMAR1              0             0
+ AVRSEX             0             0
+ AVRTOB             0             0
+ AVRALC             0             0
+ ZCHEERS            0             0
+ ZHELPFUL           0             0
+ ZNICE              0             0
+ ZMEAN              0             0
+ ZBULLIES           0             0
+ ZEXCLUDE           0             0
+ ZSPORTS            0             0
+ ZATTRAC            0             0
+
+
+           THETA
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+ ZPOP               0
+ ZLIKE              0             0
+ ZMAR1              0             0             0
+ AVRSEX             0             0             0             0
+ AVRTOB             0             0             0             0             0
+ AVRALC             0             0             0             0             0
+ ZCHEERS            0             0             0             0             0
+ ZHELPFUL           0             0             0             0             0
+ ZNICE              0             0             0             0             0
+ ZMEAN              0             0             0             0             0
+ ZBULLIES           0             0             0             0             0
+ ZEXCLUDE           0             0             0             0             0
+ ZSPORTS            0             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           THETA
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+ AVRALC             0
+ ZCHEERS            0             0
+ ZHELPFUL           0             0             0
+ ZNICE              0             0             0             0
+ ZMEAN              0             0             0             0             0
+ ZBULLIES           0             0             0             0             0
+ ZEXCLUDE           0             0             0             0             0
+ ZSPORTS            0             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           THETA
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+ ZBULLIES           0
+ ZEXCLUDE           0             0
+ ZSPORTS            0             0             0
+ ZATTRAC            0             0             0             0
+
+
+           ALPHA
+              RISK          PROSOC        ANTSOC        ZPOP          ZLIKE
+              ________      ________      ________      ________      ________
+      1           0             0             0             1             2
+
+
+           ALPHA
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZCHEERS
+              ________      ________      ________      ________      ________
+      1           3             4             5             6             7
+
+
+           ALPHA
+              ZHELPFUL      ZNICE         ZMEAN         ZBULLIES      ZEXCLUDE
+              ________      ________      ________      ________      ________
+      1           8             9            10            11            12
+
+
+           ALPHA
+              ZSPORTS       ZATTRAC
+              ________      ________
+      1          13             0
+
+
+           BETA
+              RISK          PROSOC        ANTSOC        ZPOP          ZLIKE
+              ________      ________      ________      ________      ________
+ RISK               0             0             0            14             0
+ PROSOC             0             0             0             0             0
+ ANTSOC             0             0             0             0             0
+ ZPOP              15            16            17             0             0
+ ZLIKE              0            20            21             0             0
+ ZMAR1             23             0             0             0             0
+ AVRSEX            24             0             0             0             0
+ AVRTOB            25             0             0             0             0
+ AVRALC            26             0             0             0             0
+ ZCHEERS            0             0             0             0             0
+ ZHELPFUL           0            27             0             0             0
+ ZNICE              0            28             0             0             0
+ ZMEAN              0             0             0             0             0
+ ZBULLIES           0             0            29             0             0
+ ZEXCLUDE           0             0            30             0             0
+ ZSPORTS            0             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           BETA
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZCHEERS
+              ________      ________      ________      ________      ________
+ RISK               0             0             0             0             0
+ PROSOC             0             0             0             0             0
+ ANTSOC             0             0             0             0             0
+ ZPOP               0             0             0             0             0
+ ZLIKE              0             0             0             0             0
+ ZMAR1              0             0             0             0             0
+ AVRSEX             0             0             0             0             0
+ AVRTOB             0             0             0             0             0
+ AVRALC             0             0             0             0             0
+ ZCHEERS            0             0             0             0             0
+ ZHELPFUL           0             0             0             0             0
+ ZNICE              0             0             0             0             0
+ ZMEAN              0             0             0             0             0
+ ZBULLIES           0             0             0             0             0
+ ZEXCLUDE           0             0             0             0             0
+ ZSPORTS            0             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           BETA
+              ZHELPFUL      ZNICE         ZMEAN         ZBULLIES      ZEXCLUDE
+              ________      ________      ________      ________      ________
+ RISK               0             0             0             0             0
+ PROSOC             0             0             0             0             0
+ ANTSOC             0             0             0             0             0
+ ZPOP               0             0             0             0             0
+ ZLIKE              0             0             0             0             0
+ ZMAR1              0             0             0             0             0
+ AVRSEX             0             0             0             0             0
+ AVRTOB             0             0             0             0             0
+ AVRALC             0             0             0             0             0
+ ZCHEERS            0             0             0             0             0
+ ZHELPFUL           0             0             0             0             0
+ ZNICE              0             0             0             0             0
+ ZMEAN              0             0             0             0             0
+ ZBULLIES           0             0             0             0             0
+ ZEXCLUDE           0             0             0             0             0
+ ZSPORTS            0             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           BETA
+              ZSPORTS       ZATTRAC
+              ________      ________
+ RISK               0             0
+ PROSOC             0             0
+ ANTSOC             0             0
+ ZPOP              18            19
+ ZLIKE              0            22
+ ZMAR1              0             0
+ AVRSEX             0             0
+ AVRTOB             0             0
+ AVRALC             0             0
+ ZCHEERS            0             0
+ ZHELPFUL           0             0
+ ZNICE              0             0
+ ZMEAN              0             0
+ ZBULLIES           0             0
+ ZEXCLUDE           0             0
+ ZSPORTS            0             0
+ ZATTRAC            0             0
+
+
+           PSI
+              RISK          PROSOC        ANTSOC        ZPOP          ZLIKE
+              ________      ________      ________      ________      ________
+ RISK               0
+ PROSOC             0            31
+ ANTSOC             0            32            33
+ ZPOP               0             0             0            34
+ ZLIKE              0             0             0            35            36
+ ZMAR1              0             0             0             0             0
+ AVRSEX             0             0             0             0             0
+ AVRTOB             0             0             0             0             0
+ AVRALC             0             0             0             0             0
+ ZCHEERS            0             0             0             0             0
+ ZHELPFUL           0             0             0             0             0
+ ZNICE              0             0             0             0             0
+ ZMEAN              0             0             0             0             0
+ ZBULLIES           0             0             0             0             0
+ ZEXCLUDE           0             0             0             0             0
+ ZSPORTS           47             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           PSI
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZCHEERS
+              ________      ________      ________      ________      ________
+ ZMAR1             37
+ AVRSEX             0            38
+ AVRTOB             0             0            39
+ AVRALC             0             0             0            40
+ ZCHEERS            0             0             0             0            41
+ ZHELPFUL           0             0             0             0             0
+ ZNICE              0             0             0             0             0
+ ZMEAN              0             0             0             0             0
+ ZBULLIES           0             0             0             0             0
+ ZEXCLUDE           0             0             0             0             0
+ ZSPORTS            0             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           PSI
+              ZHELPFUL      ZNICE         ZMEAN         ZBULLIES      ZEXCLUDE
+              ________      ________      ________      ________      ________
+ ZHELPFUL          42
+ ZNICE              0            43
+ ZMEAN              0             0            44
+ ZBULLIES           0             0             0            45
+ ZEXCLUDE           0             0             0             0            46
+ ZSPORTS            0             0             0             0             0
+ ZATTRAC            0             0             0             0             0
+
+
+           PSI
+              ZSPORTS       ZATTRAC
+              ________      ________
+ ZSPORTS           48
+ ZATTRAC            0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              RISK          PROSOC        ANTSOC        ZPOP          ZLIKE
+              ________      ________      ________      ________      ________
+ ZPOP           0.000         0.000         0.000         1.000         0.000
+ ZLIKE          0.000         0.000         0.000         0.000         1.000
+ ZMAR1          0.000         0.000         0.000         0.000         0.000
+ AVRSEX         0.000         0.000         0.000         0.000         0.000
+ AVRTOB         0.000         0.000         0.000         0.000         0.000
+ AVRALC         0.000         0.000         0.000         0.000         0.000
+ ZCHEERS        0.000         0.000         0.000         0.000         0.000
+ ZHELPFUL       0.000         0.000         0.000         0.000         0.000
+ ZNICE          0.000         0.000         0.000         0.000         0.000
+ ZMEAN          0.000         0.000         0.000         0.000         0.000
+ ZBULLIES       0.000         0.000         0.000         0.000         0.000
+ ZEXCLUDE       0.000         0.000         0.000         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZCHEERS
+              ________      ________      ________      ________      ________
+ ZPOP           0.000         0.000         0.000         0.000         0.000
+ ZLIKE          0.000         0.000         0.000         0.000         0.000
+ ZMAR1          1.000         0.000         0.000         0.000         0.000
+ AVRSEX         0.000         1.000         0.000         0.000         0.000
+ AVRTOB         0.000         0.000         1.000         0.000         0.000
+ AVRALC         0.000         0.000         0.000         1.000         0.000
+ ZCHEERS        0.000         0.000         0.000         0.000         1.000
+ ZHELPFUL       0.000         0.000         0.000         0.000         0.000
+ ZNICE          0.000         0.000         0.000         0.000         0.000
+ ZMEAN          0.000         0.000         0.000         0.000         0.000
+ ZBULLIES       0.000         0.000         0.000         0.000         0.000
+ ZEXCLUDE       0.000         0.000         0.000         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              ZHELPFUL      ZNICE         ZMEAN         ZBULLIES      ZEXCLUDE
+              ________      ________      ________      ________      ________
+ ZPOP           0.000         0.000         0.000         0.000         0.000
+ ZLIKE          0.000         0.000         0.000         0.000         0.000
+ ZMAR1          0.000         0.000         0.000         0.000         0.000
+ AVRSEX         0.000         0.000         0.000         0.000         0.000
+ AVRTOB         0.000         0.000         0.000         0.000         0.000
+ AVRALC         0.000         0.000         0.000         0.000         0.000
+ ZCHEERS        0.000         0.000         0.000         0.000         0.000
+ ZHELPFUL       1.000         0.000         0.000         0.000         0.000
+ ZNICE          0.000         1.000         0.000         0.000         0.000
+ ZMEAN          0.000         0.000         1.000         0.000         0.000
+ ZBULLIES       0.000         0.000         0.000         1.000         0.000
+ ZEXCLUDE       0.000         0.000         0.000         0.000         1.000
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              ZSPORTS       ZATTRAC
+              ________      ________
+ ZPOP           0.000         0.000
+ ZLIKE          0.000         0.000
+ ZMAR1          0.000         0.000
+ AVRSEX         0.000         0.000
+ AVRTOB         0.000         0.000
+ AVRALC         0.000         0.000
+ ZCHEERS        0.000         0.000
+ ZHELPFUL       0.000         0.000
+ ZNICE          0.000         0.000
+ ZMEAN          0.000         0.000
+ ZBULLIES       0.000         0.000
+ ZEXCLUDE       0.000         0.000
+ ZSPORTS        1.000         0.000
+ ZATTRAC        0.000         1.000
+
+
+           THETA
+              ZPOP          ZLIKE         ZMAR1         AVRSEX        AVRTOB
+              ________      ________      ________      ________      ________
+ ZPOP           0.000
+ ZLIKE          0.000         0.000
+ ZMAR1          0.000         0.000         0.000
+ AVRSEX         0.000         0.000         0.000         0.000
+ AVRTOB         0.000         0.000         0.000         0.000         0.000
+ AVRALC         0.000         0.000         0.000         0.000         0.000
+ ZCHEERS        0.000         0.000         0.000         0.000         0.000
+ ZHELPFUL       0.000         0.000         0.000         0.000         0.000
+ ZNICE          0.000         0.000         0.000         0.000         0.000
+ ZMEAN          0.000         0.000         0.000         0.000         0.000
+ ZBULLIES       0.000         0.000         0.000         0.000         0.000
+ ZEXCLUDE       0.000         0.000         0.000         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              AVRALC        ZCHEERS       ZHELPFUL      ZNICE         ZMEAN
+              ________      ________      ________      ________      ________
+ AVRALC         0.000
+ ZCHEERS        0.000         0.000
+ ZHELPFUL       0.000         0.000         0.000
+ ZNICE          0.000         0.000         0.000         0.000
+ ZMEAN          0.000         0.000         0.000         0.000         0.000
+ ZBULLIES       0.000         0.000         0.000         0.000         0.000
+ ZEXCLUDE       0.000         0.000         0.000         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              ZBULLIES      ZEXCLUDE      ZSPORTS       ZATTRAC
+              ________      ________      ________      ________
+ ZBULLIES       0.000
+ ZEXCLUDE       0.000         0.000
+ ZSPORTS        0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              RISK          PROSOC        ANTSOC        ZPOP          ZLIKE
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.002         0.055
+
+
+           ALPHA
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZCHEERS
+              ________      ________      ________      ________      ________
+      1         0.000        -0.002        -0.004         0.000         0.051
+
+
+           ALPHA
+              ZHELPFUL      ZNICE         ZMEAN         ZBULLIES      ZEXCLUDE
+              ________      ________      ________      ________      ________
+      1         0.068         0.058         0.000        -0.003        -0.006
+
+
+           ALPHA
+              ZSPORTS       ZATTRAC
+              ________      ________
+      1        -0.002         0.018
+
+
+           BETA
+              RISK          PROSOC        ANTSOC        ZPOP          ZLIKE
+              ________      ________      ________      ________      ________
+ RISK           0.000         0.000         0.000         0.000         0.000
+ PROSOC         0.000         0.000         0.000         0.000         0.000
+ ANTSOC         0.000         0.000         0.000         0.000         0.000
+ ZPOP           0.000         0.000         0.000         0.000         0.000
+ ZLIKE          0.000         0.000         0.000         0.000         0.000
+ ZMAR1          1.000         0.000         0.000         0.000         0.000
+ AVRSEX         1.000         0.000         0.000         0.000         0.000
+ AVRTOB         1.000         0.000         0.000         0.000         0.000
+ AVRALC         1.000         0.000         0.000         0.000         0.000
+ ZCHEERS        0.000         1.000         0.000         0.000         0.000
+ ZHELPFUL       0.000         1.053         0.000         0.000         0.000
+ ZNICE          0.000         1.006         0.000         0.000         0.000
+ ZMEAN          0.000         0.000         1.000         0.000         0.000
+ ZBULLIES       0.000         0.000         1.095         0.000         0.000
+ ZEXCLUDE       0.000         0.000         0.552         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZCHEERS
+              ________      ________      ________      ________      ________
+ RISK           0.000         0.000         0.000         0.000         0.000
+ PROSOC         0.000         0.000         0.000         0.000         0.000
+ ANTSOC         0.000         0.000         0.000         0.000         0.000
+ ZPOP           0.000         0.000         0.000         0.000         0.000
+ ZLIKE          0.000         0.000         0.000         0.000         0.000
+ ZMAR1          0.000         0.000         0.000         0.000         0.000
+ AVRSEX         0.000         0.000         0.000         0.000         0.000
+ AVRTOB         0.000         0.000         0.000         0.000         0.000
+ AVRALC         0.000         0.000         0.000         0.000         0.000
+ ZCHEERS        0.000         0.000         0.000         0.000         0.000
+ ZHELPFUL       0.000         0.000         0.000         0.000         0.000
+ ZNICE          0.000         0.000         0.000         0.000         0.000
+ ZMEAN          0.000         0.000         0.000         0.000         0.000
+ ZBULLIES       0.000         0.000         0.000         0.000         0.000
+ ZEXCLUDE       0.000         0.000         0.000         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              ZHELPFUL      ZNICE         ZMEAN         ZBULLIES      ZEXCLUDE
+              ________      ________      ________      ________      ________
+ RISK           0.000         0.000         0.000         0.000         0.000
+ PROSOC         0.000         0.000         0.000         0.000         0.000
+ ANTSOC         0.000         0.000         0.000         0.000         0.000
+ ZPOP           0.000         0.000         0.000         0.000         0.000
+ ZLIKE          0.000         0.000         0.000         0.000         0.000
+ ZMAR1          0.000         0.000         0.000         0.000         0.000
+ AVRSEX         0.000         0.000         0.000         0.000         0.000
+ AVRTOB         0.000         0.000         0.000         0.000         0.000
+ AVRALC         0.000         0.000         0.000         0.000         0.000
+ ZCHEERS        0.000         0.000         0.000         0.000         0.000
+ ZHELPFUL       0.000         0.000         0.000         0.000         0.000
+ ZNICE          0.000         0.000         0.000         0.000         0.000
+ ZMEAN          0.000         0.000         0.000         0.000         0.000
+ ZBULLIES       0.000         0.000         0.000         0.000         0.000
+ ZEXCLUDE       0.000         0.000         0.000         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              ZSPORTS       ZATTRAC
+              ________      ________
+ RISK           0.000         0.000
+ PROSOC         0.000         0.000
+ ANTSOC         0.000         0.000
+ ZPOP           0.000         0.000
+ ZLIKE          0.000         0.000
+ ZMAR1          0.000         0.000
+ AVRSEX         0.000         0.000
+ AVRTOB         0.000         0.000
+ AVRALC         0.000         0.000
+ ZCHEERS        0.000         0.000
+ ZHELPFUL       0.000         0.000
+ ZNICE          0.000         0.000
+ ZMEAN          0.000         0.000
+ ZBULLIES       0.000         0.000
+ ZEXCLUDE       0.000         0.000
+ ZSPORTS        0.000         0.000
+ ZATTRAC        0.000         0.000
+
+
+           PSI
+              RISK          PROSOC        ANTSOC        ZPOP          ZLIKE
+              ________      ________      ________      ________      ________
+ RISK           1.000
+ PROSOC         0.000         0.050
+ ANTSOC         0.000         0.000         0.050
+ ZPOP           0.000         0.000         0.000         0.471
+ ZLIKE          0.000         0.000         0.000         0.000         0.483
+ ZMAR1          0.000         0.000         0.000         0.000         0.000
+ AVRSEX         0.000         0.000         0.000         0.000         0.000
+ AVRTOB         0.000         0.000         0.000         0.000         0.000
+ AVRALC         0.000         0.000         0.000         0.000         0.000
+ ZCHEERS        0.000         0.000         0.000         0.000         0.000
+ ZHELPFUL       0.000         0.000         0.000         0.000         0.000
+ ZNICE          0.000         0.000         0.000         0.000         0.000
+ ZMEAN          0.000         0.000         0.000         0.000         0.000
+ ZBULLIES       0.000         0.000         0.000         0.000         0.000
+ ZEXCLUDE       0.000         0.000         0.000         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZCHEERS
+              ________      ________      ________      ________      ________
+ ZMAR1          0.500
+ AVRSEX         0.000         0.440
+ AVRTOB         0.000         0.000         0.464
+ AVRALC         0.000         0.000         0.000         0.412
+ ZCHEERS        0.000         0.000         0.000         0.000         0.529
+ ZHELPFUL       0.000         0.000         0.000         0.000         0.000
+ ZNICE          0.000         0.000         0.000         0.000         0.000
+ ZMEAN          0.000         0.000         0.000         0.000         0.000
+ ZBULLIES       0.000         0.000         0.000         0.000         0.000
+ ZEXCLUDE       0.000         0.000         0.000         0.000         0.000
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              ZHELPFUL      ZNICE         ZMEAN         ZBULLIES      ZEXCLUDE
+              ________      ________      ________      ________      ________
+ ZHELPFUL       0.511
+ ZNICE          0.000         0.503
+ ZMEAN          0.000         0.000         0.471
+ ZBULLIES       0.000         0.000         0.000         0.480
+ ZEXCLUDE       0.000         0.000         0.000         0.000         0.444
+ ZSPORTS        0.000         0.000         0.000         0.000         0.000
+ ZATTRAC        0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              ZSPORTS       ZATTRAC
+              ________      ________
+ ZSPORTS        0.464
+ ZATTRAC        0.000         1.025
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\petere\desktop\sem_ws\mplus scripts\mplus_model8.dgm
+
+     Beginning Time:  11:08:06
+        Ending Time:  11:08:07
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

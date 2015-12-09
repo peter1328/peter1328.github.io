@@ -1,0 +1,193 @@
+VERSION 1.1.0
+INPUT
+TITLE:
+  FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+DATA:
+ FILE IS "RiskDataMplus.csv";
+VARIABLE:
+ NAMES ARE
+ID NR Country Gender Age LiveArea Car Bedroom Travel
+Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+;
+USEVARIABLES =
+ZPop ZLike
+ZMar1 AvrSex AvrTob AvrAlc
+Zcheers Zhelpful Znice
+Zmean Zbullies Zexclude
+Zsports Zattrac
+;
+MISSING = ALL(9999);
+ANALYSIS:
+TYPE = GENERAL;
+OUTPUT:
+stdyx residual tech1 modindices(all 3.84);
+MODEL:
+Risk BY ZMar1* AvrSex AvrTob AvrAlc;
+Risk@1;
+Risk ON ZPop;
+Risk ON Zlike@0;
+ProSoc BY Zcheers Zhelpful Znice;
+AntSoc BY Zmean Zbullies Zexclude;
+ZPop ON Risk ProSoc AntSoc Zattrac Zsports;
+ZLike ON ProSoc AntSoc Zattrac;
+ZPop WITH ZLike;
+Risk WITH Zsports;
+Risk WITH ProSoc@0;
+Zsports WITH ProSoc@0;
+Zsports WITH AntSoc@0;
+INPUT_END
+2
+2
+0
+2
+ML
+1
+GENERAL
+0
+13
+3
+1
+zpop zlike zmar1 avrsex avrtob avralc zcheers zhelpful znice zmean zbullies zexclude zsports risk prosoc antsoc zattrac
+6
+5 1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 4 0 0 0
+0
+3
+risk
+zmar1 avrsex avrtob avralc
+prosoc
+zcheers zhelpful znice
+antsoc
+zmean zbullies zexclude
+1 1 risk zmar1    0.516    0.047
+1 1 risk avrsex    0.409    0.044
+1 1 risk avrtob    0.589    0.046
+1 1 risk avralc    0.529    0.041
+1 1 prosoc zcheers    1.000    0.000
+1 1 prosoc zhelpful    1.049    0.043
+1 1 prosoc znice    1.042    0.043
+1 1 antsoc zmean    1.000    0.000
+1 1 antsoc zbullies    1.039    0.049
+1 1 antsoc zexclude    0.779    0.051
+1 1 zpop risk    0.564    0.103
+1 1 zlike risk    0.000    0.000
+1 1 zattrac zpop    0.445    0.038
+1 1 zsports zpop    0.222    0.033
+1 1 zattrac zlike    0.123    0.041
+1 1 risk zpop    0.052    0.055
+1 1 prosoc zpop    0.229    0.045
+1 1 antsoc zpop    0.392    0.050
+1 1 prosoc zlike    0.505    0.055
+1 1 antsoc zlike   -0.298    0.053
+2 1 zpop zlike    0.187    0.028
+2 1 risk zsports   -0.049    0.066
+2 1 risk prosoc    0.000    0.000
+2 1 zsports prosoc    0.000    0.000
+2 1 zsports antsoc    0.000    0.000
+2 1 antsoc prosoc   -0.207    0.042
+4 1 zpop    0.420    0.040
+4 1 zlike    0.587    0.043
+4 1 zmar1    0.640    0.056
+4 1 avrsex    0.652    0.052
+4 1 avrtob    0.457    0.049
+4 1 avralc    0.446    0.044
+4 1 zcheers    0.287    0.026
+4 1 zhelpful    0.172    0.022
+4 1 znice    0.168    0.022
+4 1 zmean    0.233    0.027
+4 1 zbullies    0.195    0.028
+4 1 zexclude    0.458    0.036
+4 1 risk    1.000    0.000
+5 1 zsports    0.925    0.065
+5 1 prosoc    0.769    0.073
+5 1 antsoc    0.705    0.067
+11 1 risk zmar1    0.594    0.042
+11 1 risk avrsex    0.502    0.046
+11 1 risk avrtob    0.707    0.038
+11 1 risk avralc    0.672    0.039
+11 1 prosoc zcheers    0.853    0.016
+11 1 prosoc zhelpful    0.911    0.013
+11 1 prosoc znice    0.912    0.013
+11 1 antsoc zmean    0.867    0.018
+11 1 antsoc zbullies    0.892    0.017
+11 1 antsoc zexclude    0.695    0.029
+11 1 zpop risk    0.449    0.075
+11 1 zlike risk    0.000    0.000
+11 1 zattrac zpop    0.494    0.039
+11 1 zsports zpop    0.235    0.035
+11 1 zattrac zlike    0.129    0.044
+11 1 risk zpop    0.066    0.069
+11 1 prosoc zpop    0.221    0.044
+11 1 antsoc zpop    0.361    0.045
+11 1 prosoc zlike    0.461    0.044
+11 1 antsoc zlike   -0.261    0.044
+12 1 zpop zlike    0.377    0.046
+12 1 risk zsports   -0.051    0.069
+12 1 risk prosoc    0.000    0.000
+12 1 zsports prosoc    0.000    0.000
+12 1 zsports antsoc    0.000    0.000
+12 1 antsoc prosoc   -0.281    0.051
+14 1 zpop    0.506    0.044
+14 1 zlike    0.636    0.039
+14 1 zmar1    0.647    0.051
+14 1 avrsex    0.748    0.046
+14 1 avrtob    0.500    0.054
+14 1 avralc    0.548    0.053
+14 1 zcheers    0.272    0.028
+14 1 zhelpful    0.169    0.024
+14 1 znice    0.168    0.024
+14 1 zmean    0.248    0.032
+14 1 zbullies    0.203    0.031
+14 1 zexclude    0.516    0.041
+14 1 risk    0.762    0.044
+15 1 zsports    1.000    0.000
+15 1 prosoc    1.000    0.000
+15 1 antsoc    1.000    0.000
+31 1 risk zmar1    0.591    0.052
+31 1 risk avrsex    0.468    0.050
+31 1 risk avrtob    0.675    0.049
+31 1 risk avralc    0.606    0.046
+31 1 prosoc zcheers    0.877    0.042
+31 1 prosoc zhelpful    0.920    0.039
+31 1 prosoc znice    0.914    0.039
+31 1 antsoc zmean    0.840    0.040
+31 1 antsoc zbullies    0.873    0.040
+31 1 antsoc zexclude    0.655    0.043
+31 1 zpop risk    0.493    0.080
+31 1 zlike risk    0.000    0.000
+31 1 zattrac zpop    0.445    0.038
+31 1 zsports zpop    0.222    0.033
+31 1 zattrac zlike    0.123    0.041
+31 1 risk zpop    0.060    0.063
+31 1 prosoc zpop    0.201    0.039
+31 1 antsoc zpop    0.329    0.043
+31 1 prosoc zlike    0.443    0.048
+31 1 antsoc zlike   -0.250    0.044
+32 1 zpop zlike    0.187    0.028
+32 1 risk zsports   -0.049    0.066
+32 1 risk prosoc    0.000    0.000
+32 1 zsports prosoc    0.000    0.000
+32 1 zsports antsoc    0.000    0.000
+32 1 antsoc prosoc   -0.281    0.051
+34 1 zpop    0.420    0.040
+34 1 zlike    0.587    0.043
+34 1 zmar1    0.640    0.056
+34 1 avrsex    0.652    0.052
+34 1 avrtob    0.457    0.049
+34 1 avralc    0.446    0.044
+34 1 zcheers    0.287    0.026
+34 1 zhelpful    0.172    0.022
+34 1 znice    0.168    0.022
+34 1 zmean    0.233    0.027
+34 1 zbullies    0.195    0.028
+34 1 zexclude    0.458    0.036
+34 1 risk    0.762    0.044
+35 1 zsports    0.925    0.065
+35 1 prosoc    1.000    0.000
+35 1 antsoc    1.000    0.000

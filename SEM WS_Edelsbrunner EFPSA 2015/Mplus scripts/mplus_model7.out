@@ -1,0 +1,659 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+04/19/2015   9:25 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  FMA-LTA FS 0113_2C2F
+  ALLES richtig!
+
+  DATA: FILE IS "RiskDataMplus.csv";
+
+  VARIABLE: NAMES ARE
+  ID NR Country Gender Age LiveArea Car Bedroom Travel
+  Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+  LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+  Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+  Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+  Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+  ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+  ;
+
+  USEVARIABLES =
+  ZPop ZLike
+  ZMar1 AvrSex AvrTob AvrAlc
+  ;
+
+  MISSING = ALL(9999);
+
+  ANALYSIS:
+  TYPE = GENERAL;
+
+  MODEL:
+
+  Risk BY ZMar1* AvrSex AvrTob AvrAlc;
+  Risk@1;
+
+  Risk ON ZPop;
+  Risk ON Zlike;
+  ZPop WITH ZLike;
+
+
+
+  OUTPUT:
+  stdyx residual tech1 modindices(all 3.84);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         408
+
+Number of dependent variables                                    4
+Number of independent variables                                  2
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   ZMAR1       AVRSEX      AVRTOB      AVRALC
+
+Observed independent variables
+   ZPOP        ZLIKE
+
+Continuous latent variables
+   RISK
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  RiskDataMplus.csv
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             7
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+ ZMAR1          0.998
+ AVRSEX         0.988         0.988
+ AVRTOB         0.973         0.966         0.973
+ AVRALC         0.983         0.973         0.963         0.983
+ ZPOP           0.998         0.988         0.973         0.983         1.000
+ ZLIKE          0.998         0.988         0.973         0.983         1.000
+
+
+           Covariance Coverage
+              ZLIKE
+              ________
+ ZLIKE          1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       19
+
+Loglikelihood
+
+          H0 Value                       -3116.311
+          H1 Value                       -3109.539
+
+Information Criteria
+
+          Akaike (AIC)                    6270.622
+          Bayesian (BIC)                  6346.837
+          Sample-Size Adjusted BIC        6286.546
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                             13.545
+          Degrees of Freedom                     8
+          P-Value                           0.0944
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.041
+          90 Percent C.I.                    0.000  0.078
+          Probability RMSEA <= .05           0.603
+
+CFI/TLI
+
+          CFI                                0.986
+          TLI                                0.975
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            408.727
+          Degrees of Freedom                    14
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.026
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ RISK     BY
+    ZMAR1              0.504      0.045     11.158      0.000
+    AVRSEX             0.404      0.043      9.472      0.000
+    AVRTOB             0.562      0.045     12.559      0.000
+    AVRALC             0.503      0.041     12.374      0.000
+
+ RISK     ON
+    ZPOP               0.728      0.079      9.236      0.000
+    ZLIKE             -0.299      0.069     -4.340      0.000
+
+ ZPOP     WITH
+    ZLIKE              0.313      0.050      6.321      0.000
+
+ Means
+    ZPOP               0.002      0.048      0.049      0.961
+    ZLIKE              0.055      0.049      1.141      0.254
+
+ Intercepts
+    ZMAR1              0.009      0.047      0.185      0.853
+    AVRSEX             0.004      0.045      0.083      0.934
+    AVRTOB             0.002      0.044      0.041      0.967
+    AVRALC             0.007      0.042      0.170      0.865
+
+ Variances
+    ZPOP               0.939      0.066     14.283      0.000
+    ZLIKE              0.963      0.067     14.283      0.000
+
+ Residual Variances
+    ZMAR1              0.631      0.055     11.453      0.000
+    AVRSEX             0.640      0.051     12.460      0.000
+    AVRTOB             0.466      0.049      9.570      0.000
+    AVRALC             0.455      0.044     10.328      0.000
+    RISK               1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ RISK     BY
+    ZMAR1              0.607      0.041     14.635      0.000
+    AVRSEX             0.519      0.045     11.464      0.000
+    AVRTOB             0.704      0.037     18.845      0.000
+    AVRALC             0.668      0.039     17.122      0.000
+
+ RISK     ON
+    ZPOP               0.586      0.047     12.551      0.000
+    ZLIKE             -0.244      0.054     -4.551      0.000
+
+ ZPOP     WITH
+    ZLIKE              0.329      0.044      7.466      0.000
+
+ Means
+    ZPOP               0.002      0.050      0.049      0.961
+    ZLIKE              0.057      0.050      1.141      0.254
+
+ Intercepts
+    ZMAR1              0.009      0.047      0.185      0.853
+    AVRSEX             0.004      0.048      0.083      0.934
+    AVRTOB             0.002      0.046      0.041      0.967
+    AVRALC             0.008      0.046      0.170      0.865
+
+ Variances
+    ZPOP               1.000      0.000    999.000    999.000
+    ZLIKE              1.000      0.000    999.000    999.000
+
+ Residual Variances
+    ZMAR1              0.632      0.050     12.568      0.000
+    AVRSEX             0.731      0.047     15.573      0.000
+    AVRTOB             0.505      0.053      9.609      0.000
+    AVRALC             0.554      0.052     10.652      0.000
+    RISK               0.691      0.048     14.254      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    ZMAR1              0.368      0.050      7.318      0.000
+    AVRSEX             0.269      0.047      5.732      0.000
+    AVRTOB             0.495      0.053      9.423      0.000
+    AVRALC             0.446      0.052      8.561      0.000
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    RISK               0.309      0.048      6.376      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.975E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+      1         0.001        -0.002        -0.007         0.000         0.002
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              ZLIKE
+              ________
+      1         0.055
+
+
+           Residuals for Means/Intercepts/Thresholds
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+      1         0.000         0.000        -0.001         0.000         0.000
+
+
+           Residuals for Means/Intercepts/Thresholds
+              ZLIKE
+              ________
+      1         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+      1         0.232       999.000       999.000       999.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              ZLIKE
+              ________
+      1         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+      1         0.002         0.005        -0.027         0.001         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              ZLIKE
+              ________
+      1         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+ ZMAR1          0.998
+ AVRSEX         0.294         0.876
+ AVRTOB         0.410         0.328         0.923
+ AVRALC         0.367         0.294         0.409         0.821
+ ZPOP           0.297         0.238         0.331         0.297         0.939
+ ZLIKE         -0.030        -0.024        -0.034        -0.030         0.313
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              ZLIKE
+              ________
+ ZLIKE          0.963
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+ ZMAR1          0.000
+ AVRSEX         0.035         0.000
+ AVRTOB         0.008        -0.008         0.000
+ AVRALC        -0.034        -0.024         0.021         0.000
+ ZPOP          -0.007        -0.017        -0.031         0.048         0.000
+ ZLIKE         -0.035        -0.064         0.007         0.056         0.000
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              ZLIKE
+              ________
+ ZLIKE          0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+ ZMAR1          0.057
+ AVRSEX         1.408       999.000
+ AVRTOB         0.485        -0.428       999.000
+ AVRALC        -1.886        -1.205         1.874       999.000
+ ZPOP          -0.272        -0.589        -1.525         2.333         0.000
+ ZLIKE         -1.037        -1.764         0.253         2.005         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              ZLIKE
+              ________
+ ZLIKE          0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+ ZMAR1          0.001
+ AVRSEX         0.712        -0.001
+ AVRTOB         0.152        -0.172        -0.003
+ AVRALC        -0.711        -0.540         0.425        -0.003
+ ZPOP          -0.141        -0.357        -0.630         1.021         0.000
+ ZLIKE         -0.723        -1.398         0.145         1.257         0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              ZLIKE
+              ________
+ ZLIKE          0.000
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index     3.840
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+ON Statements
+
+ZMAR1    ON AVRALC                 3.844    -0.175     -0.175       -0.159
+AVRALC   ON ZMAR1                  3.844    -0.127     -0.127       -0.140
+AVRALC   ON ZPOP                   5.340     0.126      0.126        0.135
+AVRALC   ON ZLIKE                  4.063     0.083      0.083        0.090
+
+WITH Statements
+
+AVRALC   WITH ZMAR1                3.844    -0.080     -0.080       -0.149
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+      1           0             0             0             0             0
+
+
+           NU
+              ZLIKE
+              ________
+      1           0
+
+
+           LAMBDA
+              RISK          ZMAR1         AVRSEX        AVRTOB        AVRALC
+              ________      ________      ________      ________      ________
+ ZMAR1              0             0             0             0             0
+ AVRSEX             0             0             0             0             0
+ AVRTOB             0             0             0             0             0
+ AVRALC             0             0             0             0             0
+ ZPOP               0             0             0             0             0
+ ZLIKE              0             0             0             0             0
+
+
+           LAMBDA
+              ZPOP          ZLIKE
+              ________      ________
+ ZMAR1              0             0
+ AVRSEX             0             0
+ AVRTOB             0             0
+ AVRALC             0             0
+ ZPOP               0             0
+ ZLIKE              0             0
+
+
+           THETA
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+ ZMAR1              0
+ AVRSEX             0             0
+ AVRTOB             0             0             0
+ AVRALC             0             0             0             0
+ ZPOP               0             0             0             0             0
+ ZLIKE              0             0             0             0             0
+
+
+           THETA
+              ZLIKE
+              ________
+ ZLIKE              0
+
+
+           ALPHA
+              RISK          ZMAR1         AVRSEX        AVRTOB        AVRALC
+              ________      ________      ________      ________      ________
+      1           0             1             2             3             4
+
+
+           ALPHA
+              ZPOP          ZLIKE
+              ________      ________
+      1           5             6
+
+
+           BETA
+              RISK          ZMAR1         AVRSEX        AVRTOB        AVRALC
+              ________      ________      ________      ________      ________
+ RISK               0             0             0             0             0
+ ZMAR1              9             0             0             0             0
+ AVRSEX            10             0             0             0             0
+ AVRTOB            11             0             0             0             0
+ AVRALC            12             0             0             0             0
+ ZPOP               0             0             0             0             0
+ ZLIKE              0             0             0             0             0
+
+
+           BETA
+              ZPOP          ZLIKE
+              ________      ________
+ RISK               7             8
+ ZMAR1              0             0
+ AVRSEX             0             0
+ AVRTOB             0             0
+ AVRALC             0             0
+ ZPOP               0             0
+ ZLIKE              0             0
+
+
+           PSI
+              RISK          ZMAR1         AVRSEX        AVRTOB        AVRALC
+              ________      ________      ________      ________      ________
+ RISK               0
+ ZMAR1              0            13
+ AVRSEX             0             0            14
+ AVRTOB             0             0             0            15
+ AVRALC             0             0             0             0            16
+ ZPOP               0             0             0             0             0
+ ZLIKE              0             0             0             0             0
+
+
+           PSI
+              ZPOP          ZLIKE
+              ________      ________
+ ZPOP              17
+ ZLIKE             18            19
+
+
+     STARTING VALUES
+
+
+           NU
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+      1         0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              ZLIKE
+              ________
+      1         0.000
+
+
+           LAMBDA
+              RISK          ZMAR1         AVRSEX        AVRTOB        AVRALC
+              ________      ________      ________      ________      ________
+ ZMAR1          0.000         1.000         0.000         0.000         0.000
+ AVRSEX         0.000         0.000         1.000         0.000         0.000
+ AVRTOB         0.000         0.000         0.000         1.000         0.000
+ AVRALC         0.000         0.000         0.000         0.000         1.000
+ ZPOP           0.000         0.000         0.000         0.000         0.000
+ ZLIKE          0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              ZPOP          ZLIKE
+              ________      ________
+ ZMAR1          0.000         0.000
+ AVRSEX         0.000         0.000
+ AVRTOB         0.000         0.000
+ AVRALC         0.000         0.000
+ ZPOP           1.000         0.000
+ ZLIKE          0.000         1.000
+
+
+           THETA
+              ZMAR1         AVRSEX        AVRTOB        AVRALC        ZPOP
+              ________      ________      ________      ________      ________
+ ZMAR1          0.000
+ AVRSEX         0.000         0.000
+ AVRTOB         0.000         0.000         0.000
+ AVRALC         0.000         0.000         0.000         0.000
+ ZPOP           0.000         0.000         0.000         0.000         0.000
+ ZLIKE          0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              ZLIKE
+              ________
+ ZLIKE          0.000
+
+
+           ALPHA
+              RISK          ZMAR1         AVRSEX        AVRTOB        AVRALC
+              ________      ________      ________      ________      ________
+      1         0.000         0.000        -0.002        -0.004         0.000
+
+
+           ALPHA
+              ZPOP          ZLIKE
+              ________      ________
+      1         0.002         0.055
+
+
+           BETA
+              RISK          ZMAR1         AVRSEX        AVRTOB        AVRALC
+              ________      ________      ________      ________      ________
+ RISK           0.000         0.000         0.000         0.000         0.000
+ ZMAR1          1.000         0.000         0.000         0.000         0.000
+ AVRSEX         1.000         0.000         0.000         0.000         0.000
+ AVRTOB         1.000         0.000         0.000         0.000         0.000
+ AVRALC         1.000         0.000         0.000         0.000         0.000
+ ZPOP           0.000         0.000         0.000         0.000         0.000
+ ZLIKE          0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              ZPOP          ZLIKE
+              ________      ________
+ RISK           0.000         0.000
+ ZMAR1          0.000         0.000
+ AVRSEX         0.000         0.000
+ AVRTOB         0.000         0.000
+ AVRALC         0.000         0.000
+ ZPOP           0.000         0.000
+ ZLIKE          0.000         0.000
+
+
+           PSI
+              RISK          ZMAR1         AVRSEX        AVRTOB        AVRALC
+              ________      ________      ________      ________      ________
+ RISK           1.000
+ ZMAR1          0.000         0.500
+ AVRSEX         0.000         0.000         0.440
+ AVRTOB         0.000         0.000         0.000         0.464
+ AVRALC         0.000         0.000         0.000         0.000         0.412
+ ZPOP           0.000         0.000         0.000         0.000         0.000
+ ZLIKE          0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              ZPOP          ZLIKE
+              ________      ________
+ ZPOP           0.471
+ ZLIKE          0.000         0.483
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\petere\desktop\sem_ws\mplus_model7.dgm
+
+     Beginning Time:  21:25:45
+        Ending Time:  21:25:45
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

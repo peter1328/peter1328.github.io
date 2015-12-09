@@ -1,0 +1,421 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+04/19/2015   9:14 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  FMA-LTA FS 0113_2C2F
+  ALLES richtig!
+
+  DATA: FILE IS "RiskDataMplus.csv";
+
+  VARIABLE: NAMES ARE
+  ID NR Country Gender Age LiveArea Car Bedroom Travel
+  Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+  LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+  Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+  Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+  Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+  ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+  ;
+
+  USEVARIABLES =
+  risksum Gender Bedroom
+  ;
+  MISSING = ALL(9999);
+
+  ANALYSIS:
+  TYPE = GENERAL;
+
+  MODEL:
+
+  risksum ON Gender Bedroom;
+
+  [Gender Bedroom];
+
+  OUTPUT:
+  stdyx residual tech1 modindices(all 3.84);
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         408
+
+Number of dependent variables                                    1
+Number of independent variables                                  2
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   RISKSUM
+
+Observed independent variables
+   GENDER      BEDROOM
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  RiskDataMplus.csv
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             3
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM        0.956
+ GENDER         0.953         0.998
+ BEDROOM        0.956         0.998         1.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES MAY NOT BE
+     TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE
+     FIRST-ORDER DERIVATIVE PRODUCT MATRIX.  THIS MAY BE DUE TO THE STARTING
+     VALUES BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE
+     CONDITION NUMBER IS       0.449D-14.  PROBLEM INVOLVING PARAMETER 9.
+
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        9
+
+Loglikelihood
+
+          H0 Value                       -1087.443
+          H1 Value                       -1087.443
+
+Information Criteria
+
+          Akaike (AIC)                    2192.886
+          Bayesian (BIC)                  2228.988
+          Sample-Size Adjusted BIC        2200.429
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.000
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                              1.967
+          Degrees of Freedom                     2
+          P-Value                           0.3739
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ RISKSUM  ON
+    GENDER            -0.258      0.285     -0.907      0.364
+    BEDROOM            0.885      0.860      1.029      0.304
+
+ BEDROOM  WITH
+    GENDER            -0.004      0.004     -0.908      0.364
+
+ Means
+    GENDER             0.501      0.025     20.224      0.000
+    BEDROOM            0.973      0.008    121.347      0.000
+
+ Intercepts
+    RISKSUM           -0.723      0.866     -0.835      0.404
+
+ Variances
+    GENDER             0.250      0.018     14.266      0.000
+    BEDROOM            0.026      0.002     14.283      0.000
+
+ Residual Variances
+    RISKSUM            7.892      0.565     13.964      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ RISKSUM  ON
+    GENDER            -0.046      0.051     -0.908      0.364
+    BEDROOM            0.051      0.049      1.030      0.303
+
+ BEDROOM  WITH
+    GENDER            -0.045      0.049     -0.911      0.363
+
+ Means
+    GENDER             1.002      0.061     16.499      0.000
+    BEDROOM            6.008      0.216     27.806      0.000
+
+ Intercepts
+    RISKSUM           -0.257      0.307     -0.836      0.403
+
+ Variances
+    GENDER             1.000      0.000    999.000    999.000
+    BEDROOM            1.000      0.000    999.000    999.000
+
+ Residual Variances
+    RISKSUM            0.995      0.007    142.841      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    RISKSUM            0.005      0.007      0.704      0.482
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.228E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+RESIDUAL OUTPUT
+
+
+     ESTIMATED MODEL AND RESIDUALS (OBSERVED - ESTIMATED)
+
+
+           Model Estimated Means/Intercepts/Thresholds
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+      1         0.008         0.501         0.973
+
+
+           Residuals for Means/Intercepts/Thresholds
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Means/Intercepts/Thresholds
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           Normalized Residuals for Means/Intercepts/Thresholds
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           Model Estimated Covariances/Correlations/Residual Correlations
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM        7.931
+ GENDER        -0.068         0.250
+ BEDROOM        0.024        -0.004         0.026
+
+
+           Residuals for Covariances/Correlations/Residual Correlations
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM        0.000
+ GENDER         0.000         0.000
+ BEDROOM        0.000         0.000         0.000
+
+
+           Standardized Residuals (z-scores) for Covariances/Correlations/Residual Corr
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM        0.000
+ GENDER         0.000         0.000
+ BEDROOM        0.000         0.000         0.000
+
+
+           Normalized Residuals for Covariances/Correlations/Residual Correlations
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM        0.000
+ GENDER         0.000         0.000
+ BEDROOM        0.000         0.000         0.000
+
+
+MODEL MODIFICATION INDICES
+
+Minimum M.I. value for printing the modification index     3.840
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+      1           0             0             0
+
+
+           LAMBDA
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM            0             0             0
+ GENDER             0             0             0
+ BEDROOM            0             0             0
+
+
+           THETA
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM            0
+ GENDER             0             0
+ BEDROOM            0             0             0
+
+
+           ALPHA
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+      1           1             2             3
+
+
+           BETA
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM            0             4             5
+ GENDER             0             0             0
+ BEDROOM            0             0             0
+
+
+           PSI
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM            6
+ GENDER             0             7
+ BEDROOM            0             8             9
+
+
+     STARTING VALUES
+
+
+           NU
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+      1         0.000         0.000         0.000
+
+
+           LAMBDA
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM        1.000         0.000         0.000
+ GENDER         0.000         1.000         0.000
+ BEDROOM        0.000         0.000         1.000
+
+
+           THETA
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM        0.000
+ GENDER         0.000         0.000
+ BEDROOM        0.000         0.000         0.000
+
+
+           ALPHA
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+      1         0.008         0.000         0.000
+
+
+           BETA
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM        0.000         0.000         0.000
+ GENDER         0.000         0.000         0.000
+ BEDROOM        0.000         0.000         0.000
+
+
+           PSI
+              RISKSUM       GENDER        BEDROOM
+              ________      ________      ________
+ RISKSUM        3.976
+ GENDER         0.000         0.125
+ BEDROOM        0.000         0.000         0.013
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\petere\desktop\sem_ws\mplus_model3inp.dgm
+
+     Beginning Time:  21:14:55
+        Ending Time:  21:14:55
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

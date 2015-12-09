@@ -1,0 +1,32 @@
+TITLE:  FMA-LTA FS 0113_2C2F
+ALLES richtig!
+
+DATA: FILE IS "RiskDataMplus.csv";
+ 
+VARIABLE: NAMES ARE 
+ID NR Country Gender Age LiveArea Car Bedroom Travel
+Computer Wealth ZPop ZLike SE DASS Depress Anxiety Stress PopSelf
+LikeSelf Tobacco1 Tobacco2 Tobacco3 Tobacco4 Tobacco5 Alcohol1
+Alcohol2 Alcohol3 Alcohol4 Drugs1 Drugs2 Drugs3 Drugs4 Sex1
+Sex2 Sex3 Sex4 Sex5 Sex7 Sex8 Aggro1 Aggro2 Zfriend Zattrac Zcheers Zhelpful
+Zsports Zwell Znice Zleader Ztough Zexclude Zbullies Zgossips Zmean
+ZSex3 ZSex4 ZTob3 ZTob4 ZAlc3 ZAlc4 ZMar1 AvrSex AvrTob AvrAlc risksum
+;
+
+USEVARIABLES =
+AvrSex AvrTob AvrAlc ZMar1
+;
+MISSING = ALL(9999);
+
+ANALYSIS:
+TYPE = GENERAL;
+
+MODEL:
+
+Risk BY AvrSex* AvrTob AvrAlc ZMar1
+; ! Confirmatory factor model
+Risk@1;
+[AvrSex AvrTob AvrAlc ZMar1]; ! Estimate intercepts (means)
+
+OUTPUT:
+stdyx residual tech1 modindices(all 3.84);
